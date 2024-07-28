@@ -20,6 +20,7 @@ const validationSchema = Yup.object({
   "confirm-password": Yup.string()
     .oneOf([Yup.ref("password")], "Passwords must match")
     .required("Confirm Password is required"),
+  recaptcha: Yup.string().required("ReCAPTCHA is required"),
 });
 
 const Register = () => {
@@ -43,12 +44,6 @@ const Register = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting }) => {
-            if (!values.recaptcha) {
-              alert("Please complete the reCAPTCHA");
-              setSubmitting(false);
-              return;
-            }
-
             console.log("Form data", values);
             setSubmitting(false);
           }}
@@ -135,12 +130,17 @@ const Register = () => {
                 />
               </div>
               <div>
+                {/* TODO: How to implement Recaptcha in the backend */}
                 <ReCAPTCHA
                   ref={recaptchaRef}
                   sitekey="6Lfd9xkqAAAAACTLpOgZd-iIuwV6dTxPZdrctvEI"
                   onChange={(value) => setFieldValue("recaptcha", value)}
                 />
-                <ErrorMessage name="recaptcha" component="div" />
+                <ErrorMessage
+                  name="recaptcha"
+                  component="span"
+                  className="text-red-600"
+                />
               </div>
               <Button type="submit" className="w-full" disabled={isSubmitting}>
                 Sign up
