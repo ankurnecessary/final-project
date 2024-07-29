@@ -4,12 +4,12 @@ import { render, fireEvent, screen, act } from "@testing-library/react";
 import Register from "./register";
 
 describe("Register Component", () => {
-  test("renders Register form", () => {
+  test("1. renders Register form", () => {
     render(<Register />);
     expect(screen.getByText("Welcome!")).toBeInTheDocument();
   });
 
-  test("1. validate form inputs", async () => {
+  test("2. validate form inputs", async () => {
     render(<Register />);
     await act(async () => {
       fireEvent.input(screen.getByLabelText(/name/i), {
@@ -28,14 +28,19 @@ describe("Register Component", () => {
 
     fireEvent.submit(screen.getByRole("button", { name: /sign up/i }));
 
-    expect(await screen.findByText(/Name must be at least 2 characters/i)).toBeInTheDocument();
+    expect(
+      await screen.findByText(/Name must be at least 2 characters/i)
+    ).toBeInTheDocument();
     expect(await screen.findByText(/Email is required/i)).toBeInTheDocument();
-    expect(await screen.findByText(/^Password is required/i)).toBeInTheDocument();
-    expect(await screen.findByText(/Confirm Password is required/i)).toBeInTheDocument();
-    
+    expect(
+      await screen.findByText(/^Password is required/i)
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByText(/Confirm Password is required/i)
+    ).toBeInTheDocument();
   });
 
-  test("2. validate form inputs", async () => {
+  test("3. validate form inputs", async () => {
     render(<Register />);
     await act(async () => {
       fireEvent.input(screen.getByLabelText(/name/i), {
