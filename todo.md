@@ -1,5 +1,10 @@
 # Todo
 
+## Test cases
+
+1. Test cases for registration page. [DONE]
+2. Test cases for login page. [DONE]
+
 ## Prisma
 
 1. Install prisma.
