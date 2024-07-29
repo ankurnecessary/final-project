@@ -4,6 +4,7 @@
 
 1. Test cases for registration page. [DONE]
 2. Test cases for login page. [DONE]
+3. Add recaptcha test case.
 
 ## Prisma
 
@@ -25,3 +26,8 @@
 3. Call login API from server action function.
 
 Work on responsiveness of the forms.
+
+## What to do when this project will be deployed in cloud?
+
+1. <https://www.google.com/u/0/recaptcha/admin/site/706344925/settings> - update domain at this address for reCaptcha.
+2.
