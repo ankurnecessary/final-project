@@ -6,7 +6,7 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 const validationSchema = Yup.object({
   email: Yup.string()
