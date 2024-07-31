@@ -1,6 +1,6 @@
 # Todo
 
-## Github Actions
+## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)
 
 1. Create a repository for this project. [DONE]
 2. Set a github action to test the application when a pull request is created.[DONE]
@@ -35,6 +35,10 @@
 1. Integrate reCaptcha's logic in the server action function.
 2. Create API for login.
 3. Call login API from server action function.
+
+## ReCAPTCHA
+
+1. Put reCaptcha siteKey in .env variable.
 
 Work on responsiveness of the forms.
 
