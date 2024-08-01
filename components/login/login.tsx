@@ -6,8 +6,9 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import ReCAPTCHA from "react-google-recaptcha";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { getCaptchaValidity } from "@/server-actions/recaptcha";
+import ErrorAlert from "../custom-ui/error-alert";
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -18,7 +19,8 @@ const validationSchema = Yup.object({
 });
 
 const Login = () => {
-  const recaptchaRef = useRef(null);
+  const [captchaError, setCaptchaError] = useState<boolean>(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
       <div className="max-w-md w-full space-y-8 md:border md:rounded-lg md:shadow-lg p-12">
@@ -37,6 +39,12 @@ const Login = () => {
             </Link>
           </p>
         </div>
+        {captchaError && (
+          <ErrorAlert
+            heading="Error"
+            description="Error with captcha. Please try again."
+          />
+        )}
         <Formik
           initialValues={{
             email: "",
@@ -48,7 +56,8 @@ const Login = () => {
             console.log("Form data", values);
             const isCaptchaValid = await getCaptchaValidity(values.recaptcha);
             if (!isCaptchaValid) {
-              alert("Invalid reCAPTCHA response");
+              setCaptchaError(true);
+              recaptchaRef.current?.reset();
               return;
             }
             setSubmitting(false);
