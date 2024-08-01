@@ -7,6 +7,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import ReCAPTCHA from "react-google-recaptcha";
 import React, { useRef } from "react";
+import { getCaptchaValidity } from "@/server-actions/recaptcha";
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -43,8 +44,13 @@ const Login = () => {
             recaptcha: "",
           }}
           validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting }) => {
+          onSubmit={async (values, { setSubmitting }) => {
             console.log("Form data", values);
+            const isCaptchaValid = await getCaptchaValidity(values.recaptcha);
+            if (!isCaptchaValid) {
+              alert("Invalid reCAPTCHA response");
+              return;
+            }
             setSubmitting(false);
           }}
         >
