@@ -3,6 +3,12 @@ import "@testing-library/jest-dom";
 import { render, fireEvent, screen, act } from "@testing-library/react";
 import Register from "./register";
 
+// Mocking getCaptchaValidity
+jest.mock('@/server-actions/recaptcha', () => ({
+  __esModule: true,
+  getCaptchaValidity: jest.fn().mockResolvedValue(true), // Mock implementation
+}));
+
 // Mock the ReCAPTCHA component
 jest.mock("react-google-recaptcha", () => ({
   __esModule: true,
@@ -151,6 +157,39 @@ describe("Register Component", () => {
       "confirm-password": "password",
       recaptcha: "mock-recaptcha-token",
     });
+  });
+
+  // New test case: form submission with invalid CAPTCHA
+  test("6. form submission fails with invalid CAPTCHA", async () => {
+    // Change the mock to return false for this specific test
+    const { getCaptchaValidity } = require('@/server-actions/recaptcha');
+    getCaptchaValidity.mockResolvedValueOnce(false);
+
+    render(<Register />);
+    await act(async () => {
+      fireEvent.input(screen.getByLabelText(/name/i), {
+        target: { value: "Test User" },
+      });
+      fireEvent.input(screen.getByLabelText(/email/i), {
+        target: { value: "test@example.com" },
+      });
+      fireEvent.input(screen.getByLabelText("Password"), {
+        target: { value: "password" },
+      });
+      fireEvent.input(screen.getByLabelText(/confirm password/i), {
+        target: { value: "password" },
+      });
+    });
+
+    // Simulate reCAPTCHA completion
+    fireEvent.click(screen.getByTestId("recaptcha"));
+
+    await act(async () => {
+      fireEvent.submit(screen.getByRole("button", { name: /sign up/i }));
+    });
+
+    // Check for captcha error alert
+    expect(screen.getByText(/Error with captcha/i)).toBeInTheDocument();
   });
 });
 

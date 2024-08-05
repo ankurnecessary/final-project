@@ -4,13 +4,13 @@
 
 1. Create a repository for this project. [DONE]
 2. Set a github action to test the application when a pull request is created.[DONE]
-3. Set a github action to test whether the build of application is successful with the changes in the new branch.
+3. Set a github action to test whether the build of application is successful with the changes in the new branch.[DONE]
 
 ## Test cases
 
 1. Test cases for registration page. [DONE]
 2. Test cases for login page. [DONE]
-3. Add recaptcha test case.
+3. Add recaptcha test case.[DONE]
 
 ## Prisma
 
@@ -24,10 +24,11 @@
 ## Registration form
 
 1. Add a country autocomplete field in the registration form.
-2. Integrate reCaptcha's logic in the server action function.
-3. Create API for registration.
-4. Call registration API from server action function.
-5. Integrate email verification upon registration.
+2. Integrate reCaptcha's logic in the server action function. [DONE]
+3. Add a message to show that recaptcha validation is unsuccessful. [INProgress]
+4. Create API for registration.
+5. Call registration API from server action function.
+6. Integrate email verification upon registration.
    1. Send email to user with verification code / link.
 
 ## Login form
@@ -38,7 +39,7 @@
 
 ## ReCAPTCHA
 
-1. Put reCaptcha siteKey in .env variable.
+1. Put reCaptcha siteKey in .env variable. [NotPossible]
 
 Work on responsiveness of the forms.
 
