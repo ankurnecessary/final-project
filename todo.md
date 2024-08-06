@@ -1,5 +1,9 @@
 # Todo
 
+## Use storybook.js
+
+1. Installation of storybook.js [INPROGRESS]
+
 ## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)
 
 1. Create a repository for this project. [DONE]
@@ -15,8 +19,15 @@
 
 ## Prisma
 
-1. Install prisma.[InProgress]
-2. Create database tables via prisma schema. [InProgress]
+1. Install prisma.[DONE]
+   Steps to install prisma and migrating schema to tables.
+   1. `npm i prisma -D`
+   2. `npx prisma` - Whether prisma is installed.
+   3. `npx prisma init` - Set schema.prisma file.
+   4. set database_url in .env
+   5. Write some models in prisma.schema
+   6. `npx prisma migrate dev --name country` - Generates prisma-client and migration files as per prisma.schema. It also generates tables in the database.
+2. Create database tables via prisma schema. [DONE]
 
 ## Integration of next auth
 
@@ -51,3 +62,8 @@ Work on responsiveness of the forms.
 ## What to do when this project will be deployed in cloud?
 
 1. <https://www.google.com/u/0/recaptcha/admin/site/706344925/settings> - update domain at this address for reCaptcha.
+
+## Normal website feature
+
+1. If a user is trying to access any page that is visible to authorized users then we will ask user to login and then redirect him to that page.
+2. If a user is trying to access any feature like 'save to favourites' etc. which can be used by authorized users only then we will ask user to login and then perform that action directly.
