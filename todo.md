@@ -2,7 +2,15 @@
 
 ## Use storybook.js
 
-1. Installation of storybook.js [INPROGRESS]
+1. Installation of storybook.js [DONE]
+
+### Stories for existing components
+
+1. Write story for `<Input>` component. [INPROGRESS]
+2. Write story for `<Button>` component. [INPROGRESS]
+3. Write story for `<Login>` component. [INPROGRESS]
+4. Write story for `<Register>` component. [INPROGRESS]
+5. Write story for `<Error-alert>` component. [INPROGRESS]
 
 ## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)
 
@@ -67,3 +75,7 @@ Work on responsiveness of the forms.
 
 1. If a user is trying to access any page that is visible to authorized users then we will ask user to login and then redirect him to that page.
 2. If a user is trying to access any feature like 'save to favourites' etc. which can be used by authorized users only then we will ask user to login and then perform that action directly.
+
+## Shell Scripts
+
+1. Added shell script to record the build statistics output in a text file. [DONE]
