@@ -43,9 +43,6 @@ const meta: Meta<typeof Button> = {
     className: {
       control: "text",
       description: "Custom tailwind CSS classes to apply to the button"
-    },
-    asChild: {
-      control: "boolean"
     }
   },
 };
