@@ -4,6 +4,15 @@ import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
 
 <ColorPalette>
   <ColorItem
+    title="Primary"
+    colors={{ Blue1: "hsl(216.85deg 100% 61.37%)" }}
+  />
+  <ColorItem
+    title="Input focus"
+    colors={{ BlueishGrey: "hsl(216.85deg 62.26% 82.47%)" }}
+  />
+  {/* Color finalized are above this line no. */}
+  <ColorItem
     title="theme.color.greyscale"
     subtitle="Some of the greys."
     colors={{ White: "#fff", Alabaster: "#f8f8f8", Concrete: "#f4f4f4" }}
@@ -12,11 +21,6 @@ import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
     title="theme.color.primary"
     subtitle="Coral"
     colors={{ WildWatermelon: "#FF4785" }}
-  />
-  <ColorItem
-    title="theme.color.secondary"
-    subtitle="Ocean"
-    colors={{ DodgerBlue: "#1EA7FD" }}
   />
   <ColorItem
     title="theme.color.positive"
