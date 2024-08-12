@@ -1,0 +1,19 @@
+{/* Iconography.mdx */}
+
+import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";
+
+import { icons } from "lucide-react"; // How to iterate over this object?
+
+<Meta title="App/Iconography" />
+
+# Iconography
+
+<IconGallery>
+  {Object.entries(icons).map(([name, icon]) => {
+    console.log(name)
+    const LucideIcon = icons[name];
+    return (<IconItem name={name}>
+      <LucideIcon />
+    </IconItem>);
+  })}
+</IconGallery>
