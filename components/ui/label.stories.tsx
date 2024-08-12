@@ -7,24 +7,7 @@ const meta: Meta<typeof Label> = {
   tags: ["autodocs"], // Automatically create a document for all the stories of the button
   parameters: {
     layout: "centered", // Automatically center the button
-  },
-  // argTypes: {
-  //   // Adding <Input/> type
-  //   type: {
-  //     control: "select",
-  //     description: "Input type",
-  //     options: [
-  //       "text",
-  //       "search",
-  //       "number",
-  //       "password",
-  //       "date",
-  //       "month",
-  //       "email",
-  //       "file",
-  //     ],
-  //   },
-  // },
+  }
 };
 
 export default meta;
