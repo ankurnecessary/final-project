@@ -14,7 +14,7 @@ const meta: Meta<typeof Alert> = {
     variant: {
       control: "select",
       description: "Alert variants",
-      options: ["default", "destructive"],
+      options: ["default", "destructive", "warning", "primary"],
     },
     className: {
       control: "text",
@@ -64,4 +64,38 @@ export const Destructive: Story = {
       </AlertDescription>
     </Alert>
   ),
+};
+
+export const Primary: Story = {
+  args: {
+    variant: "primary",
+    className: "shadow-lg"
+  },
+
+  render: args => (<Alert variant={args.variant} className={args.className}>
+    <ExclamationTriangleIcon className="h-4 w-4" />
+    <AlertTitle>Lorem ipsum dolor sit</AlertTitle>
+    <AlertDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad harum
+              expedita quo minus repellendus, quam accusantium! Deleniti fugiat
+              reprehenderit facilis culpa accusantium praesentium debitis ipsam natus
+              repudiandae autem. Non, dolor.
+            </AlertDescription>
+  </Alert>)
+};
+
+export const Warning: Story = {
+  args: {
+    variant: "warning",
+    className: "shadow-lg"
+  },
+
+  render: args => (<Alert variant={args.variant} className={args.className}>
+    <ExclamationTriangleIcon className="h-4 w-4" />
+    <AlertTitle>Lorem ipsum dolor sit</AlertTitle>
+    <AlertDescription>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad harum
+              expedita quo minus repellendus, quam accusantium! Deleniti fugiat
+              reprehenderit facilis culpa accusantium praesentium debitis ipsam natus
+              repudiandae autem. Non, dolor.
+            </AlertDescription>
+  </Alert>)
 };
