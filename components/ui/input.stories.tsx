@@ -3,7 +3,7 @@ import { Input } from "./input";
 import { Formik, Form } from "formik";
 
 const meta: Meta<typeof Input> = {
-  title: "Component/UI/Formik/Input", // Each slash will create another level in the left menu
+  title: "Component/UI/FormikInput", // Each slash will create another level in the left menu
   component: Input, // Component
   tags: ["autodocs"], // Automatically create a document for all the stories of the button
   parameters: {

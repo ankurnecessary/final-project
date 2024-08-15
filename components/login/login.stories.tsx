@@ -4,7 +4,7 @@ import { within, userEvent, expect, waitFor, screen } from '@storybook/test';
 import Login from './login';
 
 const meta = {
-  title: 'Component/ui/login',
+  title: 'Component/Login',
   component: Login,
   parameters: {
     layout: 'fullscreen',
