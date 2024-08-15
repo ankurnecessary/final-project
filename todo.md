@@ -16,10 +16,10 @@
 8. Write story for `<Label>` component.[DONE]
 9. Write story for `<Button>` component.[DONE]
 10. Write story for `<Alert>` component.[DONE]
-11. How to add the interaction tests in storybook?
-12. Write story for `<Login>` component.
-13. Write story for `<Register>` component.
-14. Write story for `<Error-alert>` component.[INPROGRESS]
+11. Write story for `<ErrorAlert>` component.[DONE]
+12. Write story for `<Register>` component.
+13. Write story for `<Login>` component.[INPROGRESS]
+14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components.
 
 ## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)
 
@@ -66,7 +66,7 @@
 
 ## Login form
 
-1. Integrate reCaptcha's logic in the server action function.
+1. Integrate reCaptcha's logic in the server action function.[DONE]
 2. Create API for login.
 3. Call login API from server action function.
 

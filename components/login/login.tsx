@@ -72,6 +72,7 @@ const Login = () => {
                   name="email"
                   type="email"
                   autoComplete="email"
+                  data-testid="email"
                   required
                   className="mt-1"
                   placeholder="Enter your email"
@@ -86,6 +87,7 @@ const Login = () => {
                 <Label htmlFor="password">Password</Label>
                 <Input
                   id="password"
+                  data-testid="password"
                   name="password"
                   type="password"
                   autoComplete="current-password"
@@ -100,11 +102,11 @@ const Login = () => {
                 />
               </div>
               <div>
-                {/* TODO: How to implement Recaptcha in the backend */}
                 <ReCAPTCHA
                   ref={recaptchaRef}
                   sitekey="6Lfd9xkqAAAAACTLpOgZd-iIuwV6dTxPZdrctvEI"
                   onChange={(value) => setFieldValue("recaptcha", value)}
+                  title="reCAPTCHA-i"
                 />
                 <ErrorMessage
                   name="recaptcha"
