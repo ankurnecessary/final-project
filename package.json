@@ -12,7 +12,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "@prisma/client": "^5.17.0",
@@ -45,6 +46,7 @@
     "@storybook/nextjs": "^8.2.8",
     "@storybook/react": "^8.2.8",
     "@storybook/test": "^8.2.8",
+    "@storybook/test-runner": "^0.19.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
