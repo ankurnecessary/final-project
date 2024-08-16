@@ -1,8 +1,6 @@
 name: Test Storybook
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -20,7 +18,7 @@ jobs:
       - name: /////////////// Checkout code ///////////////
         uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: /////////////// Use Node.js ${{ matrix.node-version }} ///////////////
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
