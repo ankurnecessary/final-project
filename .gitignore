@@ -41,3 +41,6 @@ next-env.d.ts
 temp-build-stats.txt
 build-stats.txt
 new-build-stats.txt
+
+# storybook build files / folders
+storybook-static
