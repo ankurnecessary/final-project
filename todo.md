@@ -7,6 +7,7 @@
 ### [How to set CI/CD pipeline for Storybook's integration tests](https://storybook.js.org/docs/writing-tests/test-runner#run-against-non-deployed-storybooks)
 
 1. Integrating a CI/CD pipeline for integration tests in storybook. [DONE]
+2. Make sure after sucessful run of test only storybook will be deployed on github pages.[INPROGRESS]
 
 ### [Storybook interaction tests](https://storybook.js.org/docs/writing-tests/interaction-testing#run-code-before-the-component-gets-rendered)
 

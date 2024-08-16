@@ -6,25 +6,61 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: /////////////// Checkout code ///////////////
         uses: actions/checkout@v4
 
-      - name: /////////////// Setup node ///////////////
+      - name: /////////////// Setup node.js ///////////////
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          
+
       - name: /////////////// Installing dependencies ///////////////
         run: npm i --force
 
       - name: /////////////// Build Storybook /////////////// 
         run: npm run build-storybook
 
-      - name: Deploy to GitHub Pages
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: /////////////// Checkout code ///////////////
+        uses: actions/checkout@v4
+
+      - name: /////////////// Setup node.js ///////////////
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: /////////////// Installing dependencies ///////////////
+        run: npm i --force
+
+      - name: /////////////// Install Playwright ///////////////
+        run: npx playwright install --with-deps
+
+      - name: /////////////// Serve Storybook and run tests ///////////////
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx http-server storybook-static --port 6006" \
+            "npx wait-on tcp:127.0.0.1:6006 && npm run test-storybook"
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: /////////////// Checkout code ///////////////
+        uses: actions/checkout@v4
+
+      - name: /////////////// Setup node.js ///////////////
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: /////////////// Deploy to GitHub Pages ///////////////
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
