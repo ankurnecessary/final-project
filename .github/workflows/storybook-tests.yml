@@ -1,4 +1,4 @@
-name: Test & Deploy Storybook to GitHub Pages
+name: Test Storybook
 
 on:
   push:
@@ -8,16 +8,23 @@ on:
 
 jobs:
   storybook-build-and-test:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - name: /////////////// Checkout code ///////////////
         uses: actions/checkout@v4
 
-      - name: /////////////// Setup node ///////////////
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
       - name: /////////////// Installing dependencies ///////////////
         run: npm i --force
@@ -32,4 +39,4 @@ jobs:
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006" \
-            "npx wait-on tcp:6006 && npm run test-storybook"
+            "npx wait-on tcp:127.0.0.1:6006 && npm run test-storybook"

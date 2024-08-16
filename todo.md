@@ -6,7 +6,7 @@
 
 ### [How to set CI/CD pipeline for Storybook's integration tests](https://storybook.js.org/docs/writing-tests/test-runner#run-against-non-deployed-storybooks)
 
-1. Integrating a CI/CD pipeline for integration tests in storybook. [INPROGRESS]
+1. Integrating a CI/CD pipeline for integration tests in storybook. [DONE]
 
 ### [Storybook interaction tests](https://storybook.js.org/docs/writing-tests/interaction-testing#run-code-before-the-component-gets-rendered)
 
@@ -25,7 +25,7 @@
 11. Write story for `<ErrorAlert>` component.[DONE]
 12. Write story for `<Register>` component.[DONE]
 13. Write story for `<Login>` component.[DONE]
-14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components.
+14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components. [INPROGRESS]
 
 ## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)
 
