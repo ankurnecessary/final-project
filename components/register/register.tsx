@@ -72,6 +72,7 @@ const Register = () => {
                   </Label>
                   <Input
                     id="name"
+                    data-testid="name"
                     name="name"
                     type="text"
                     autoComplete="name"
@@ -91,6 +92,7 @@ const Register = () => {
                   </Label>
                   <Input
                     id="email"
+                    data-testid="email"
                     name="email"
                     type="email"
                     autoComplete="email"
@@ -110,6 +112,7 @@ const Register = () => {
                   </Label>
                   <Input
                     id="password"
+                    data-testid="password"
                     name="password"
                     type="password"
                     autoComplete="current-password"
@@ -132,6 +135,7 @@ const Register = () => {
                   </Label>
                   <Input
                     id="confirm-password"
+                    data-testid="confirm-password"
                     name="confirm-password"
                     type="password"
                     autoComplete="confirm-password"

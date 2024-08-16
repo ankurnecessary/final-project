@@ -17,8 +17,8 @@
 9. Write story for `<Button>` component.[DONE]
 10. Write story for `<Alert>` component.[DONE]
 11. Write story for `<ErrorAlert>` component.[DONE]
-12. Write story for `<Register>` component.
-13. Write story for `<Login>` component.[INPROGRESS]
+12. Write story for `<Register>` component.[INPROGRESS]
+13. Write story for `<Login>` component.[DONE]
 14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components.
 
 ## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)

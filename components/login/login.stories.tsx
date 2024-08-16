@@ -4,7 +4,7 @@ import { within, userEvent, expect, waitFor, screen } from '@storybook/test';
 import Login from './login';
 
 const meta = {
-  title: 'Component/ui/login',
+  title: 'Component/Login',
   component: Login,
   parameters: {
     layout: 'fullscreen',
@@ -20,7 +20,7 @@ export const Default: Story = {
     const loginButton = canvas.getByRole('button', { name: /^Sign in$/i });
     await expect(loginButton).toBeInTheDocument();
 
-    // 👇 Simulate interactions with the login
+    // 👇 Simulate interactions with the login button
     await userEvent.click(loginButton);
 
     // 👇 Assert Email validation message
@@ -44,27 +44,27 @@ export const Default: Story = {
       ),
     ).toBeInTheDocument();
 
-    // 👇 Simulate interactions with the component
+    // 👇 Simulate interaction with the email field
     await userEvent.type(canvas.getByTestId('email'), 'emailprovider.com');
 
-    // 👇 Assert Email validation message
+    // 👇 Assert Invalid Email validation message
     await expect(
       canvas.getByText(
         'Invalid email address',
       ),
     ).toBeInTheDocument();
 
-    // 👇 Simulate interactions with the component
+    // 👇 Simulate interactions with the email field
     await userEvent.clear(canvas.getByTestId('email'));
     await userEvent.type(canvas.getByTestId('email'), 'email@provider.com');
 
-    // 👇 Assert Email validation message
+    // 👇 Assert Email validation message not there
     await waitFor(() => expect(screen.queryByText('Email is required')).not.toBeInTheDocument());
 
-    // 👇 Simulate interactions with the component
+    // 👇 Simulate interaction with the password field
     await userEvent.type(canvas.getByTestId('password'), '123456');
 
-    // 👇 Assert Email validation message
+    // 👇 Assert Password validation message not there
     await waitFor(() => expect(screen.queryByText('Password is required')).not.toBeInTheDocument());
 
   },
