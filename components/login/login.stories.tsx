@@ -24,35 +24,19 @@ export const Default: Story = {
     await userEvent.click(loginButton);
 
     // 👇 Assert Email validation message
-    await expect(
-      canvas.getByText(
-        'Email is required',
-      ),
-    ).toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByText('Email is required')).toBeInTheDocument());
 
     // 👇 Assert Password validation message
-    await expect(
-      canvas.getByText(
-        'Password is required',
-      ),
-    ).toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByText('Password is required')).toBeInTheDocument());
 
     // 👇 Assert ReCAPTCHA  validation message
-    await expect(
-      canvas.getByText(
-        'ReCAPTCHA is required',
-      ),
-    ).toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByText('ReCAPTCHA is required')).toBeInTheDocument());
 
     // 👇 Simulate interaction with the email field
     await userEvent.type(canvas.getByTestId('email'), 'emailprovider.com');
 
     // 👇 Assert Invalid Email validation message
-    await expect(
-      canvas.getByText(
-        'Invalid email address',
-      ),
-    ).toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByText('Invalid email address')).toBeInTheDocument());
 
     // 👇 Simulate interactions with the email field
     await userEvent.clear(canvas.getByTestId('email'));
