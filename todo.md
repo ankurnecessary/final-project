@@ -8,7 +8,7 @@
 
 1. Integrating a CI/CD pipeline for integration tests in storybook. [DONE]
 2. Make sure after sucessful run of test only storybook will be deployed on github pages.[DONE]
-3. Your project token was added to the script via the --project-token flag. If you're running Chromatic via continuous integration, we recommend setting the **CHROMATIC_PROJECT_TOKEN** environment variable in your CI environment. You can then remove the --project-token from your package.json script.[INPROGRESS]
+3. Your project token was added to the script via the --project-token flag. If you're running Chromatic via continuous integration, we recommend setting the **CHROMATIC_PROJECT_TOKEN** environment variable in your CI environment. You can then remove the --project-token from your package.json script.[DONE]
 
 ### [Storybook interaction testing](https://storybook.js.org/docs/writing-tests/interaction-testing#run-code-before-the-component-gets-rendered)
 
@@ -131,4 +131,4 @@ Work on responsiveness of the forms.[DONE]
 
 ## Accessibility tests
 
-1. Check how to correct  all the accessibility test in storybook.
+1. Check how to correct  all the accessibility test in storybook. [INPROGRESS]
