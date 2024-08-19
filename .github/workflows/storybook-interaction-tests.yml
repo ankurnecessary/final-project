@@ -1,4 +1,4 @@
-name: Test Storybook
+name: Storybook Interaction Tests
 
 on:
   pull_request:
@@ -25,7 +25,7 @@ jobs:
           cache: 'npm'
 
       - name: /////////////// Installing dependencies ///////////////
-        run: npm i --force
+        run: npm ci --force
 
       - name: /////////////// Install Playwright ///////////////
         run: npx playwright install --with-deps
