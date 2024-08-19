@@ -75,7 +75,7 @@ const Register = () => {
                     data-testid="name"
                     name="name"
                     type="text"
-                    autoComplete="name"
+                    autoComplete="true"
                     required
                     className="mt-1"
                     placeholder="Enter your name"
@@ -95,7 +95,7 @@ const Register = () => {
                     data-testid="email"
                     name="email"
                     type="email"
-                    autoComplete="email"
+                    autoComplete="true"
                     required
                     className="mt-1"
                     placeholder="Enter your email"
@@ -115,7 +115,7 @@ const Register = () => {
                     data-testid="password"
                     name="password"
                     type="password"
-                    autoComplete="current-password"
+                    autoComplete="true"
                     required
                     className="mt-1"
                     placeholder="Enter your password"
@@ -138,7 +138,7 @@ const Register = () => {
                     data-testid="confirm-password"
                     name="confirm-password"
                     type="password"
-                    autoComplete="confirm-password"
+                    autoComplete="true"
                     required
                     className="mt-1"
                     placeholder="Enter your password again"

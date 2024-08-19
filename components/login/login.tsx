@@ -71,7 +71,7 @@ const Login = () => {
                   id="email"
                   name="email"
                   type="email"
-                  autoComplete="email"
+                  autoComplete="true"
                   data-testid="email"
                   required
                   className="mt-1"
@@ -90,7 +90,7 @@ const Login = () => {
                   data-testid="password"
                   name="password"
                   type="password"
-                  autoComplete="current-password"
+                  autoComplete="true"
                   required
                   className="mt-1"
                   placeholder="Enter your password"
