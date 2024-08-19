@@ -63,6 +63,15 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
+      - name: /////////////// Installing dependencies ///////////////
+        run: npm ci --force
+
+      - name: /////////////// Install Playwright ///////////////
+        run: npx playwright install --with-deps
+
+      - name: /////////////// Build Storybook ///////////////
+        run: npm run build-storybook --quiet
+
       - name: /////////////// Deploy to GitHub Pages ///////////////
         uses: peaceiris/actions-gh-pages@v3
         with:
