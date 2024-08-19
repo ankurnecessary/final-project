@@ -7,9 +7,12 @@
 ### [How to set CI/CD pipeline for Storybook's integration tests](https://storybook.js.org/docs/writing-tests/test-runner#run-against-non-deployed-storybooks)
 
 1. Integrating a CI/CD pipeline for integration tests in storybook. [DONE]
-2. Make sure after sucessful run of test only storybook will be deployed on github pages.[INPROGRESS]
+2. Make sure after sucessful run of test only storybook will be deployed on github pages.[DONE]
+3. Your project token was added to the script via the --project-token flag. If you're running Chromatic via continuous integration, we recommend setting the **CHROMATIC_PROJECT_TOKEN** environment variable in your CI environment. You can then remove the --project-token from your package.json script.[INPROGRESS]
 
-### [Storybook interaction tests](https://storybook.js.org/docs/writing-tests/interaction-testing#run-code-before-the-component-gets-rendered)
+### [Storybook interaction testing](https://storybook.js.org/docs/writing-tests/interaction-testing#run-code-before-the-component-gets-rendered)
+
+### [Storybook visual testing](https://storybook.js.org/docs/writing-tests/visual-testing)
 
 ### [Stories for existing components](https://www.youtube.com/watch?v=vn-mz2iRDBs)
 
@@ -26,7 +29,7 @@
 11. Write story for `<ErrorAlert>` component.[DONE]
 12. Write story for `<Register>` component.[DONE]
 13. Write story for `<Login>` component.[DONE]
-14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components. [INPROGRESS]
+14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components.
 
 ## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)
 
@@ -117,3 +120,15 @@ Work on responsiveness of the forms.[DONE]
 ## Artificial Intelligence course
 
 1. [Lang chain](https://v2.scrimba.com/the-official-langchainjs-course-c02t)
+
+## Localization & Internationalization
+
+1. <https://mail.google.com/mail/u/0/#search/nathan/FMfcgzGxSbkzXWTjFcBFwRPHbXnbJFMV>
+
+## OWASP
+
+1. Demonstrated ability to write secure code, follow secure coding practices, and understand common vulnerabilities (e.g., OWASP Top Ten).
+
+## Accessibility tests
+
+1. Check how to correct  all the accessibility test in storybook.

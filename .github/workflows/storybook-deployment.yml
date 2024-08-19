@@ -36,7 +36,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: /////////////// Installing dependencies ///////////////
-        run: npm i --force
+        run: npm ci --force
 
       - name: /////////////// Install Playwright ///////////////
         run: npx playwright install --with-deps

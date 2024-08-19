@@ -27,6 +27,7 @@
     "react": "19.0.0-rc-f994737d14-20240522",
     "react-dom": "19.0.0-rc-f994737d14-20240522",
     "react-google-recaptcha": "^3.1.0",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "yup": "^1.4.0"
@@ -56,6 +57,7 @@
     "@types/react-dom": "^18",
     "@types/react-google-recaptcha": "^2.1.9",
     "babel-jest": "^29.7.0",
+    "chromatic": "^11.7.1",
     "eslint": "^8",
     "eslint-config-next": "15.0.0-rc.0",
     "eslint-plugin-storybook": "^0.8.0",
