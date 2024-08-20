@@ -4,7 +4,7 @@ import { render, fireEvent, screen, act } from "@testing-library/react";
 import Register from "./register";
 
 // Mocking getCaptchaValidity
-jest.mock('@/server-actions/recaptcha', () => ({
+jest.mock("@/server-actions/recaptcha", () => ({
   __esModule: true,
   getCaptchaValidity: jest.fn().mockResolvedValue(true), // Mock implementation
 }));
@@ -23,12 +23,12 @@ jest.mock("react-google-recaptcha", () => ({
 }));
 
 describe("Register Component", () => {
-  test("1. renders Register form", () => {
+  test("renders Register form", () => {
     render(<Register />);
     expect(screen.getByText("Welcome!")).toBeInTheDocument();
   });
 
-  test("2. validate form inputs", async () => {
+  test("validate form inputs", async () => {
     render(<Register />);
     await act(async () => {
       fireEvent.input(screen.getByLabelText(/name/i), {
@@ -59,7 +59,7 @@ describe("Register Component", () => {
     ).toBeInTheDocument();
   });
 
-  test("3. validate form inputs", async () => {
+  test("validate form inputs", async () => {
     render(<Register />);
     await act(async () => {
       fireEvent.input(screen.getByLabelText(/name/i), {
@@ -83,14 +83,89 @@ describe("Register Component", () => {
       await screen.findByText(/invalid email address/i)
     ).toBeInTheDocument();
     expect(
-      await screen.findByText(/at least 6 characters/i)
+      await screen.findByText(/at least 8 characters/i)
     ).toBeInTheDocument();
     expect(
       await screen.findByText(/passwords must match/i)
     ).toBeInTheDocument();
   });
 
-  test("4. form submission fails without reCAPTCHA", async () => {
+  test("validate password <input/>", async () => {
+    render(<Register />);
+    await act(async () => {
+      fireEvent.input(screen.getByLabelText("Password"), {
+        target: { value: "" },
+      });
+      fireEvent.blur(screen.getByLabelText("Password"));
+    });
+
+    expect(
+      await screen.findByText(/Password is required/i)
+    ).toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.input(screen.getByLabelText("Password"), {
+        target: { value: "h" },
+      });
+      fireEvent.blur(screen.getByLabelText("Password"));
+    });
+
+    expect(
+      await screen.findByText(/At least 8 characters/i)
+    ).toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.input(screen.getByLabelText("Password"), {
+        target: { value: "hellohel" },
+      });
+      fireEvent.blur(screen.getByLabelText("Password"));
+    });
+
+    expect(
+      await screen.findByText(
+        /Password must include at least 1 upper case letter./i
+      )
+    ).toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.input(screen.getByLabelText("Password"), {
+        target: { value: "Hellohel" },
+      });
+      fireEvent.blur(screen.getByLabelText("Password"));
+    });
+
+    expect(
+      await screen.findByText(/Password must include at least 1 number./i)
+    ).toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.input(screen.getByLabelText("Password"), {
+        target: { value: "Hellohe1" },
+      });
+      fireEvent.blur(screen.getByLabelText("Password"));
+    });
+
+    expect(
+      await screen.queryByText(
+        /Password must include at least 1 special character./i
+      )
+    ).toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.input(screen.getByLabelText("Password"), {
+        target: { value: "Hello@he1" },
+      });
+      fireEvent.blur(screen.getByLabelText("Password"));
+    });
+
+    expect(
+      await screen.queryByText(
+        /Password must include at least 1 special character./i
+      )
+    ).toBeNull();
+  });
+
+  test("form submission fails without reCAPTCHA", async () => {
     render(<Register />);
     await act(async () => {
       fireEvent.input(screen.getByLabelText(/name/i), {
@@ -116,7 +191,7 @@ describe("Register Component", () => {
     ).toBeInTheDocument();
   });
 
-  test("5. form submission succeeds with reCAPTCHA", async () => {
+  test("form submission succeeds with reCAPTCHA", async () => {
     render(<Register />);
     await act(async () => {
       fireEvent.input(screen.getByLabelText(/name/i), {
@@ -126,10 +201,10 @@ describe("Register Component", () => {
         target: { value: "test@example.com" },
       });
       fireEvent.input(screen.getByLabelText("Password"), {
-        target: { value: "password" },
+        target: { value: "Password@123" },
       });
       fireEvent.input(screen.getByLabelText(/confirm password/i), {
-        target: { value: "password" },
+        target: { value: "Password@123" },
       });
     });
 
@@ -153,16 +228,16 @@ describe("Register Component", () => {
     expect(console.log).toHaveBeenCalledWith("Form data", {
       name: "Test User",
       email: "test@example.com",
-      password: "password",
-      "confirm-password": "password",
+      password: "Password@123",
+      "confirm-password": "Password@123",
       recaptcha: "mock-recaptcha-token",
     });
   });
 
   // New test case: form submission with invalid CAPTCHA
-  test("6. form submission fails with invalid CAPTCHA", async () => {
+  test("form submission fails with invalid CAPTCHA", async () => {
     // Change the mock to return false for this specific test
-    const { getCaptchaValidity } = require('@/server-actions/recaptcha');
+    const { getCaptchaValidity } = require("@/server-actions/recaptcha");
     getCaptchaValidity.mockResolvedValueOnce(false);
 
     render(<Register />);
@@ -174,10 +249,10 @@ describe("Register Component", () => {
         target: { value: "test@example.com" },
       });
       fireEvent.input(screen.getByLabelText("Password"), {
-        target: { value: "password" },
+        target: { value: "Password@123" },
       });
       fireEvent.input(screen.getByLabelText(/confirm password/i), {
-        target: { value: "password" },
+        target: { value: "Password@123" },
       });
     });
 
