@@ -14,6 +14,8 @@
 
 ### [Storybook visual testing](https://storybook.js.org/docs/writing-tests/visual-testing)
 
+### [Storybook test coverage](https://storybook.js.org/docs/writing-tests/interaction-testing#the-coverage-addon-doesnt-support-instrumented-code)
+
 ### [Stories for existing components](https://www.youtube.com/watch?v=vn-mz2iRDBs)
 
 1. Add color theme in the storybook. [DONE]
@@ -29,7 +31,7 @@
 11. Write story for `<ErrorAlert>` component.[DONE]
 12. Write story for `<Register>` component.[DONE]
 13. Write story for `<Login>` component.[DONE]
-14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components.
+14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components. [NotPossible]
 
 ## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)
 
@@ -61,7 +63,7 @@
 
 ## Integrate React Query
 
-## Password Policy
+## Password Policy [INPROGRESS]
 
 1. **Minimum Password Length** - Passwords must be at least 8 characters long (AWS supports up to 128 characters).
 2. **Character Composition** -
@@ -131,4 +133,4 @@ Work on responsiveness of the forms.[DONE]
 
 ## Accessibility tests
 
-1. Check how to correct  all the accessibility test in storybook. [INPROGRESS]
+1. Check how to correct  all the accessibility test in storybook. [DONE]
