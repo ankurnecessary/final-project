@@ -17,8 +17,15 @@ const validationSchema = Yup.object({
     .email("Invalid email address")
     .required("Email is required"),
   password: Yup.string()
-    .min(6, "At least 6 characters")
-    .required("Password is required"),
+    .min(8, "At least 8 characters")
+    .required("Password is required")
+    .matches(/[A-Z]/, "Password must include at least 1 upper case letter.")
+    .matches(/[a-z]/, "Password must include at least 1 lower case letter.")
+    .matches(/[0-9]/, "Password must include at least 1 number.")
+    .matches(
+      /[!@#$%^&*()_+\-=[\]{}|;:',.<>?/`~]/,
+      "Password must include at least 1 special character."
+    ),
   "confirm-password": Yup.string()
     .oneOf([Yup.ref("password")], "Passwords must match")
     .required("Confirm Password is required"),
@@ -151,17 +158,17 @@ const Register = () => {
                 </div>
               </div>
               <div className="mt-8">
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey="6Lfd9xkqAAAAACTLpOgZd-iIuwV6dTxPZdrctvEI"
-                    onChange={(value) => setFieldValue("recaptcha", value)}
-                  />
-                  <ErrorMessage
-                    name="recaptcha"
-                    component="span"
-                    className="text-red-600"
-                  />
-                </div>
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey="6Lfd9xkqAAAAACTLpOgZd-iIuwV6dTxPZdrctvEI"
+                  onChange={(value) => setFieldValue("recaptcha", value)}
+                />
+                <ErrorMessage
+                  name="recaptcha"
+                  component="span"
+                  className="text-red-600"
+                />
+              </div>
               <Button
                 type="submit"
                 className="w-full mt-8"
