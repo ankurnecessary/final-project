@@ -8,6 +8,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import React, { useRef, useState } from "react";
 import { getCaptchaValidity } from "@/server-actions/recaptcha";
 import ErrorAlert from "../custom-ui/errorAlert/error-alert";
+import InfoPopover from "../custom-ui/infoPopover/info-popover";
+import PasswordInfo from "./passwordInfo";
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -114,8 +116,11 @@ const Register = () => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="password" className="flex justify-between">
+                  <Label htmlFor="password" className="flex">
                     Password
+                    <InfoPopover>
+                        <PasswordInfo></PasswordInfo>
+                    </InfoPopover>
                   </Label>
                   <Input
                     id="password"
