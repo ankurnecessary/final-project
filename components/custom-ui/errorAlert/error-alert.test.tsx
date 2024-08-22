@@ -2,7 +2,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom';
-import ErrorAlert from "./error-alert";
+import ErrorAlert from ".";
 
 describe("ErrorAlert Component", () => {
   test("renders without crashing", () => {
