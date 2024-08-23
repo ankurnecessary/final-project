@@ -1,4 +1,3 @@
-// ErrorAlert.test.js
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom';
@@ -29,7 +28,7 @@ describe("ErrorAlert Component", () => {
     expect(screen.getByText("Unable to connect to server.")).toBeInTheDocument();
   });
 
-  test("renders correctly with different props", () => {
+  test("renders correctly with different props - Dynamically", () => {
     const { rerender } = render(<ErrorAlert heading="Error 1" description="Description 1" />);
     
     // Initial render

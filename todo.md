@@ -63,14 +63,16 @@
 
 ## Integrate React Query
 
-## Password Policy [INPROGRESS]
+## Password Policy
 
-1. **Minimum Password Length** - Passwords must be at least 8 characters long (AWS supports up to 128 characters).
+1. **Minimum Password Length** - Passwords must be at least 8 characters long (AWS supports up to 128 characters). [DONE]
 2. **Character Composition** -
-   1. Passwords must include at least 1 Upper Case letter. A-Z.
-   2. Passwords must include at least 1 Lower Case letter. a-z.
-   3. Passwords must include at least 1 Number - 0-9.
-   4. Passwords must include at least 1 Special characters: !@#$%^&*()_+-=[]{}|;:',.<>?/`~
+   1. Passwords must include at least 1 Upper Case letter. A-Z. [DONE]
+   2. Passwords must include at least 1 Lower Case letter. a-z. [DONE]
+   3. Passwords must include at least 1 Number - 0-9. [DONE]
+   4. Passwords must include at least 1 Special characters: !@#$%^&*()_+-=[]{}|;:',.<>?/`~ [DONE]
+
+3. Add a tooltip to show the information about password requirements.[INPROGRESS]
 
 ## Registration form
 

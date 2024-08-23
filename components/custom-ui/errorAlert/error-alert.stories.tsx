@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ErrorAlert from "./error-alert";
-import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { within, expect } from "@storybook/test";
 
 const meta: Meta<typeof ErrorAlert> = {
   title: "Component/Custom-UI/ErrorAlert", // Each slash will create another level in the left menu
@@ -28,5 +28,18 @@ export const Default: Story = {
   args: {
     heading: "Error alert",
     description: "There is an error in the application",
-  }
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // ErrorAlert Component renders without crashing
+    await expect(canvas.getByText("Error alert")).toBeInTheDocument();
+    await expect(
+      canvas.getByText("There is an error in the application")
+    ).toBeInTheDocument();
+
+    // ErrorAlert Component renders the correct variant class
+    const alert = canvas.getByRole("alert");
+    expect(alert).toHaveClass("text-destructive");
+  },
 };
