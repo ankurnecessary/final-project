@@ -118,7 +118,7 @@ const Register = () => {
                 <div>
                   <Label htmlFor="password" className="flex">
                     Password
-                    <InfoPopover>
+                    <InfoPopover label="Password information" contentOffset={6}>
                         <PasswordInfo></PasswordInfo>
                     </InfoPopover>
                   </Label>

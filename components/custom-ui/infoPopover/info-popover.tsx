@@ -7,15 +7,21 @@ import { Info } from "lucide-react";
 
 type InfoPopoverProps = {
   children: JSX.Element;
+  label: string; // Label for the info icon in the trigger component.
+  contentOffset?: number;
 };
 
-function InfoPopover({ children }: InfoPopoverProps): JSX.Element {
+function InfoPopover({ label, children, contentOffset }: InfoPopoverProps): JSX.Element {
   return (
     <Popover>
-      <PopoverTrigger>
-        <Info size={15} className="ml-1 text-neutral-500 cursor-help" />
+      <PopoverTrigger className="indent-[-10000px] inline-block h-[15px]">
+          {label}
+          <Info
+            size={15}
+            className="ml-1 text-neutral-500 cursor-help relative top-[-14px]"
+          />
       </PopoverTrigger>
-      <PopoverContent side="top" align="center">
+      <PopoverContent side="top" align="center" sideOffset={contentOffset}>
         <div className="bg-white p-2 border rounded-md mb-1 shadow-lg">
           {children}
         </div>

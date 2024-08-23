@@ -13,15 +13,30 @@ const meta: Meta<typeof InfoPopover> = {
     children: {
       control: "text",
       description: "Content to be displayed in the popover",
+    },
+    label: {
+      control: "text",
+      description: "Accessibility label",
+    },
+    contentOffset: {
+      control: "number",
+      description: "Additional offset from the trigger element",
     }
-  }
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  render: (args) => (
+    <InfoPopover label={args.label} contentOffset={args.contentOffset}>
+      {args.children}
+    </InfoPopover>
+  ),
   args: {
     children: <PasswordInfo />,
-  }
+    label: "Password information",
+    contentOffset: -8,
+  },
 };
