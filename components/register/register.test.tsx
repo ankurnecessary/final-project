@@ -37,7 +37,7 @@ describe("Register Component", () => {
       fireEvent.input(screen.getByLabelText(/email/i), {
         target: { value: "" },
       });
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByTestId("password"), {
         target: { value: "" },
       });
       fireEvent.input(screen.getByLabelText(/confirm password/i), {
@@ -68,7 +68,7 @@ describe("Register Component", () => {
       fireEvent.input(screen.getByLabelText(/email/i), {
         target: { value: "invalid-email" },
       });
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByTestId("password"), {
         target: { value: "123" },
       });
       fireEvent.input(screen.getByLabelText(/confirm password/i), {
@@ -92,11 +92,12 @@ describe("Register Component", () => {
 
   test("validate password <input/>", async () => {
     render(<Register />);
+    const passwordField = screen.getByTestId("password");
     await act(async () => {
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(passwordField, {
         target: { value: "" },
       });
-      fireEvent.blur(screen.getByLabelText("Password"));
+      fireEvent.blur(passwordField);
     });
 
     expect(
@@ -104,10 +105,10 @@ describe("Register Component", () => {
     ).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(passwordField, {
         target: { value: "h" },
       });
-      fireEvent.blur(screen.getByLabelText("Password"));
+      fireEvent.blur(passwordField);
     });
 
     expect(
@@ -115,10 +116,10 @@ describe("Register Component", () => {
     ).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(passwordField, {
         target: { value: "hellohel" },
       });
-      fireEvent.blur(screen.getByLabelText("Password"));
+      fireEvent.blur(passwordField);
     });
 
     expect(
@@ -128,10 +129,10 @@ describe("Register Component", () => {
     ).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(passwordField, {
         target: { value: "Hellohel" },
       });
-      fireEvent.blur(screen.getByLabelText("Password"));
+      fireEvent.blur(passwordField);
     });
 
     expect(
@@ -139,10 +140,10 @@ describe("Register Component", () => {
     ).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(passwordField, {
         target: { value: "Hellohe1" },
       });
-      fireEvent.blur(screen.getByLabelText("Password"));
+      fireEvent.blur(passwordField);
     });
 
     expect(
@@ -152,10 +153,10 @@ describe("Register Component", () => {
     ).toBeInTheDocument();
 
     await act(async () => {
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(passwordField, {
         target: { value: "Hello@he1" },
       });
-      fireEvent.blur(screen.getByLabelText("Password"));
+      fireEvent.blur(passwordField);
     });
 
     expect(
@@ -174,7 +175,7 @@ describe("Register Component", () => {
       fireEvent.input(screen.getByLabelText(/email/i), {
         target: { value: "test@example.com" },
       });
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByTestId("password"), {
         target: { value: "password" },
       });
       fireEvent.input(screen.getByLabelText(/confirm password/i), {
@@ -200,7 +201,7 @@ describe("Register Component", () => {
       fireEvent.input(screen.getByLabelText(/email/i), {
         target: { value: "test@example.com" },
       });
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByTestId("password"), {
         target: { value: "Password@123" },
       });
       fireEvent.input(screen.getByLabelText(/confirm password/i), {
@@ -248,7 +249,7 @@ describe("Register Component", () => {
       fireEvent.input(screen.getByLabelText(/email/i), {
         target: { value: "test@example.com" },
       });
-      fireEvent.input(screen.getByLabelText("Password"), {
+      fireEvent.input(screen.getByTestId("password"), {
         target: { value: "Password@123" },
       });
       fireEvent.input(screen.getByLabelText(/confirm password/i), {
