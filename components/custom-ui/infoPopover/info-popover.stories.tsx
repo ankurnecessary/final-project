@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import InfoPopover from "./info-popover";
 import PasswordInfo from "@/components/register/passwordInfo";
+import { within, expect, userEvent } from "@storybook/test";
 
+// TODO: Add jest test cases
 const meta: Meta<typeof InfoPopover> = {
   title: "Component/Custom-UI/InfoPopover", // Each slash will create another level in the left menu
   component: InfoPopover, // Component
@@ -38,5 +40,15 @@ export const Default: Story = {
     children: <PasswordInfo />,
     label: "Password information",
     contentOffset: -8,
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+
+    // InfoPopover Component renders without crashing
+    await expect(canvas.getByText(args.label)).toBeInTheDocument();
+
+    const button = canvas.getByRole('button', { name: args.label });
+    await userEvent.click(button);
+    await expect(canvas.getByTestId('info-popover-content')).toBeInTheDocument();
   },
 };

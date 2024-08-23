@@ -22,7 +22,7 @@ function InfoPopover({ label, children, contentOffset }: InfoPopoverProps): JSX.
           />
       </PopoverTrigger>
       <PopoverContent side="top" align="center" sideOffset={contentOffset}>
-        <div className="bg-white p-2 border rounded-md mb-1 shadow-lg">
+        <div data-testid="info-popover-content" className="bg-white p-2 border rounded-md shadow-lg">
           {children}
         </div>
       </PopoverContent>
