@@ -25,6 +25,7 @@
     "formik": "^2.4.6",
     "lucide-react": "^0.416.0",
     "next": "15.0.0-rc.0",
+    "next-auth": "^5.0.0-beta.20",
     "react": "19.0.0-rc-f994737d14-20240522",
     "react-dom": "19.0.0-rc-f994737d14-20240522",
     "react-google-recaptcha": "^3.1.0",
