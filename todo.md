@@ -31,7 +31,8 @@
 11. Write story for `<ErrorAlert>` component.[DONE]
 12. Write story for `<Register>` component.[DONE]
 13. Write story for `<Login>` component.[DONE]
-14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components. [NotPossible]
+14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components in storybook. [NotPossible]
+15. Write story for `<Popover>` component.[DONE]
 
 ## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)
 
@@ -46,6 +47,7 @@
 2. Test cases for login page. [DONE]
 3. Add recaptcha test case.[DONE]
 4. Updating test cases for the extra code and code files written for server-side integration. [DONE]
+5. Write test cases for `<InfoPopover>` component made to show tooltips. [DONE]
 
 ## Prisma
 
@@ -72,7 +74,7 @@
    3. Passwords must include at least 1 Number - 0-9. [DONE]
    4. Passwords must include at least 1 Special characters: !@#$%^&*()_+-=[]{}|;:',.<>?/`~ [DONE]
 
-3. Add a tooltip to show the information about password requirements.[INPROGRESS]
+3. Add a tooltip to show the information about password requirements.[DONE]
 
 ## Registration form
 
@@ -90,8 +92,9 @@
 ## Login form
 
 1. Integrate reCaptcha's logic in the server action function.[DONE]
-2. Create API for login.
-3. Call login API from server action function.
+2. Integrate login via Google and Github authentication. [INPROGRESS]
+3. Create API for login.
+4. Call login API from server action function.
 
 ## ReCAPTCHA
 
@@ -136,3 +139,4 @@ Work on responsiveness of the forms.[DONE]
 ## Accessibility tests
 
 1. Check how to correct  all the accessibility test in storybook. [DONE]
+2. Checked accessibility issue with `<InfoPopover>` component. [DONE]
