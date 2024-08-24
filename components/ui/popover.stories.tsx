@@ -45,10 +45,10 @@ export const Default: Story = {
   render: (args) => (
     <Popover {...args}>
       <PopoverTrigger asChild>
-        <Button aria-controls="radix-:r5:">Click me</Button>
+        <Button>Click me</Button>
       </PopoverTrigger>
       <PopoverContent side="top" align="center">
-        <ul id="radix-:r5:" className="flex flex-col font-normal gap-y-1 text-xs">
+        <ul className="flex flex-col font-normal gap-y-1 text-xs">
           <li>At least 8 characters</li>
           <li>At least 1 upper case letter.</li>
           <li>At least 1 lower case letter.</li>
