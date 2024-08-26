@@ -33,9 +33,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <Button variant="outline" className="w-full">
-          Sign in with Google
-        </Button>
+        <GithubSigninButton provider="github" />
       </div>
     </div>
   );
