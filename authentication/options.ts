@@ -19,7 +19,7 @@ export const options = {
   ],
   callbacks: {
     async redirect({url, baseUrl}:{url:string, baseUrl: string}): Promise<string>{
-      if(url === baseUrl + '/') url = baseUrl + "/test";
+      if(url === baseUrl + '/') url = baseUrl + "/chat";
       return url.startsWith(baseUrl) ? url : baseUrl;
     },
   }
