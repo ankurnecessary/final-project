@@ -3,6 +3,7 @@ import GitHubProvider, { GitHubProfile } from "next-auth/providers/github";
 export const options = {
   providers: [
     GitHubProvider({
+      // profile function helps in setting the role for a profile
       profile(profile: GitHubProfile) {
         console.log("Github profile: ", profile);
 
