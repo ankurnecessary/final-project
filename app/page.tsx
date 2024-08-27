@@ -1,5 +1,5 @@
-import GithubSigninButton from "@/components/login/github-signin-button";
-import Login from "@/components/login/login";
+import GithubSigninButton from "@/components/Login/github-signin-button";
+import Login from "@/components/Login/login";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
