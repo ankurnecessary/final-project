@@ -11,7 +11,7 @@ const GithubSigninButton = ({
     <form
       action={async () => {
         "use server";
-        await signIn(provider);
+        await signIn(provider, { redirectTo: "/chat"});
       }}
     >
       <Button variant="outline" className="w-full" {...props}>
