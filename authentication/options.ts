@@ -5,7 +5,6 @@ export const options = {
     GitHubProvider({
       // profile function helps in setting the role for a profile
       profile(profile: GitHubProfile) {
-        console.log("Github profile: ", profile);
 
         let userRole = "Github user";
         if (profile.email === "ankurnecessary@gmail.com") {
