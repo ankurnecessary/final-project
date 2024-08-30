@@ -1,13 +1,15 @@
 import SocialSigninButton from "@/components/Login/social-signin-button";
 import Login from "@/components/Login/login";
 import Link from "next/link";
+import { auth } from "@/authentication/auth";
+import { redirect } from "next/navigation";
 import { Chrome, Github } from "lucide-react";
 
 export default async function Home() {
-  const session = await auth()
+  const session = await auth();
 
   // Redirecting to home page if session is valid
-  if(session) redirect('/');
+  if (session) redirect("/");
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
