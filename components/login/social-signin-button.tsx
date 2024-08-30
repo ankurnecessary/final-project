@@ -16,7 +16,7 @@ const SocialSigninButton = ({
         await signIn(provider, { redirectTo: "/chat"});
       }}
     >
-      <Button variant="outline" className="w-full" {...props}>
+      <Button variant="outline" className="w-full bg-slate-50" {...props}>
         {icon}
         {label}
       </Button>
