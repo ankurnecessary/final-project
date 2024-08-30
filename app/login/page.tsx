@@ -40,12 +40,18 @@ export default async function Home() {
             </span>
           </div>
         </div>
-        <SocialSigninButton
-          provider="github"
-          icon={<Github size={18} color="#2a6edb" className="mr-2" />}
+        <div className="space-y-2">
+          <SocialSigninButton
+            provider="github"
+            icon={<Github size={18} color="#2a6edb" className="mr-2" />}
             label="Sign in with GitHub"
           />
-        />
+          <SocialSigninButton
+            provider="google"
+            icon={<Chrome size={18} color="#2a6edb" className="mr-2" />}
+            label="Sign in with Google"
+          />
+        </div>
       </div>
     </div>
   );
