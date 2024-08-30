@@ -8,6 +8,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import React, { useRef, useState } from "react";
 import { getCaptchaValidity } from "@/server-actions/recaptcha";
 import ErrorAlert from "../custom-ui/errorAlert/error-alert";
+import { useSearchParams } from 'next/navigation';
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -20,12 +21,19 @@ const validationSchema = Yup.object({
 const Login = () => {
   const [captchaError, setCaptchaError] = useState<boolean>(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const isAuthError = useSearchParams().get('error') === 'authError';
   return (
     <>
       {captchaError && (
         <ErrorAlert
           heading="Error"
           description="Error with captcha. Please try again."
+        />
+      )}
+      {isAuthError && (
+        <ErrorAlert
+          heading="Error"
+          description="We couldn’t sign you in. Please try again."
         />
       )}
       <Formik
