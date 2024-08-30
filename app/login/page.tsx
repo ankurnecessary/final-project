@@ -1,9 +1,8 @@
-import SocialSigninButton from "@/components/Login/social-signin-button";
 import Login from "@/components/Login/login";
 import Link from "next/link";
 import { auth } from "@/authentication/auth";
 import { redirect } from "next/navigation";
-import { Chrome, Github } from "lucide-react";
+import SocialSigninButtonGroup from "@/components/Login/social-signin-button-group";
 
 export default async function Home() {
   const session = await auth();
@@ -40,18 +39,7 @@ export default async function Home() {
             </span>
           </div>
         </div>
-        <div className="space-y-2">
-          <SocialSigninButton
-            provider="github"
-            icon={<Github size={18} color="#2a6edb" className="mr-2" />}
-            label="Sign in with GitHub"
-          />
-          <SocialSigninButton
-            provider="google"
-            icon={<Chrome size={18} color="#2a6edb" className="mr-2" />}
-            label="Sign in with Google"
-          />
-        </div>
+        <SocialSigninButtonGroup />
       </div>
     </div>
   );
