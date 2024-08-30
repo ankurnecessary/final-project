@@ -3,10 +3,12 @@ import { Button } from "../ui/button";
 import { Github } from "lucide-react";
 import { signIn } from "@/authentication/auth";
 
-const GithubSigninButton = ({
+const SocialSigninButton = ({
   provider,
+  label,
+  icon,
   ...props
-}: { provider?: string } & React.ComponentPropsWithRef<typeof Button>) => {
+}: { provider?: string, label: string, icon: React.JSX.Element } & React.ComponentPropsWithRef<typeof Button>) => {
   return (
     <form
       action={async () => {
@@ -15,12 +17,11 @@ const GithubSigninButton = ({
       }}
     >
       <Button variant="outline" className="w-full" {...props}>
-        {/* TODO: Because of glyphicon I am not able to convert this component into generic component for all the social buttons */}
-        <Github size={18} color="#2a6edb" className="mr-2"/>
-        Sign in with Github
+        {icon}
+        {label}
       </Button>
     </form>
   );
 };
 
-export default GithubSigninButton;
+export default SocialSigninButton;
