@@ -11,8 +11,8 @@ export default async function Home() {
   if (session) redirect("/");
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
-      <div className="max-w-md w-full space-y-8 md:border md:rounded-lg md:shadow-lg p-12">
+    <div className="flex items-center justify-center md:min-h-[calc(100vh-4rem)] bg-background">
+      <div className="max-w-md w-full space-y-8 md:border md:rounded-lg md:shadow-lg p-12 my-5">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight">
             Sign in to your account

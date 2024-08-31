@@ -38,7 +38,7 @@ const Register = () => {
   const [captchaError, setCaptchaError] = useState<boolean>(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
+    <div className="flex items-center justify-center md:min-h-[calc(100vh-4rem)] bg-background">
       <div className="md:max-w-xl w-full space-y-8 md:border md:rounded-lg md:shadow-lg p-12">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight">Welcome!</h2>

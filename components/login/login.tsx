@@ -55,7 +55,7 @@ const Login = () => {
         }}
       >
         {({ isSubmitting, setFieldValue }) => (
-          <Form className="space-y-6" noValidate>
+          <Form className="space-y-4" noValidate>
             <div>
               <Label htmlFor="email">Email</Label>
               <Input

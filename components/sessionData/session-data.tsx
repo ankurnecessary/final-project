@@ -3,7 +3,7 @@ import type { Session } from "next-auth";
 export default function SessionData({ session }: { session: Session | null }) {
   if (session?.user) {
     return (
-      <div className="flex flex-col gap-4 p-4 w-full bg-gray-100 rounded-md">
+      <div className="flex flex-col gap-4 p-4 w-full rounded-md">
         <h2 className="text-xl font-bold">Current Session Data</h2>
         {Object.keys(session.user).length > 3 ? (
           <p>
