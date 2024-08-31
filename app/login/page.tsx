@@ -24,7 +24,7 @@ export default async function Home() {
               className="font-medium text-primary hover:underline"
               prefetch={false}
             >
-              Register
+              Sign up
             </Link>
           </p>
         </div>

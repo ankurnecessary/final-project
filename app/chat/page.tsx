@@ -11,7 +11,6 @@ const ChatPage = async () => {
 
   return (
     <div>
-      <h1>Chat page</h1>
       <SessionData session={session} />
     </div>
   )
