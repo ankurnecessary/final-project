@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <div className="flex items-center justify-center md:min-h-[calc(100vh-4rem)] bg-background">
-      <div className="max-w-md w-full space-y-8 md:border md:rounded-lg md:shadow-lg p-12 my-5">
+      <div className="max-w-md md:max-w-3xl w-full space-y-8 md:border md:rounded-lg md:shadow-lg p-12 my-5">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight">
             Sign in to your account
@@ -28,8 +28,19 @@ export default async function Home() {
             </Link>
           </p>
         </div>
-        <Login />
-        <SocialSigninButtonGroup />
+        {/* <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4"> */}
+        <div className="flex flex-col md:flex-row">
+          <div className="md:flex-1">
+            <Login />
+          </div>
+          <div className="hidden md:flex justify-center items-stretch w-16 relative">
+            <span className="absolute top-1/2 w-7 h-7 rounded-full flex items-center justify-center translate-y-[-50%] text-xs leading-5 border border-primary bg-white z-10">OR</span>
+            <div className="border-r border-black opacity-20"></div>
+          </div>
+          <div className="space-y-4 mt-4 md:mt-3 md:flex-1">
+            <SocialSigninButtonGroup />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -5,13 +5,13 @@ import { Chrome, Github } from "lucide-react";
 const SocialSigninButtonGroup = () => {
   return (
     <>
-      <div className="relative">
+      <div className="relative md:hidden">
         <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t border-muted" />
+          <span className="w-full border-t border-black opacity-20" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background px-2 text-muted-foreground">
-            Or sign in with
+          <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs leading-5 border border-primary bg-white">
+            Or
           </span>
         </div>
       </div>
