@@ -21,7 +21,7 @@ const validationSchema = Yup.object({
 const Login = () => {
   const [captchaError, setCaptchaError] = useState<boolean>(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const isAuthError = useSearchParams().get('error') === 'authError';
+  const isAuthError = useSearchParams()?.get('error') === 'authError';
   return (
     <>
       {captchaError && (

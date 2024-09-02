@@ -22,10 +22,10 @@ jest.mock("react-google-recaptcha", () => ({
   }),
 }));
 
-describe("Register Component", () => {
+describe("Register Component:", () => {
   test("renders Register form", () => {
     render(<Register />);
-    expect(screen.getByText("Welcome!")).toBeInTheDocument();
+    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
   });
 
   test("validate form inputs", async () => {
