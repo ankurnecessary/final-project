@@ -3,6 +3,7 @@ import Link from "next/link";
 import { auth } from "@/authentication/auth";
 import { redirect } from "next/navigation";
 import SocialSigninButtonGroup from "@/components/Login/social-signin-button-group";
+import SocialAuthErrorAlert from "@/components/socialAuthErrorAlert/social-auth-error-alert";
 
 export default async function Home() {
   const session = await auth();
@@ -27,8 +28,8 @@ export default async function Home() {
               Sign up
             </Link>
           </p>
+          <SocialAuthErrorAlert />
         </div>
-        {/* <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4"> */}
         <div className="flex flex-col md:flex-row">
           <div className="md:flex-1">
             <Login />

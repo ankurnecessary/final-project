@@ -10,10 +10,6 @@ const meta: Meta<typeof ErrorAlert> = {
     layout: "centered", // Automatically center the button
   },
   argTypes: {
-    // Adding textbox for setting custom heading
-    heading: {
-      control: "text",
-    },
     // Adding textbox for setting custom description
     description: {
       control: "text",
@@ -26,7 +22,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    heading: "Error alert",
     description: "There is an error in the application",
   },
   play: async ({ canvasElement }) => {

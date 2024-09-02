@@ -41,7 +41,6 @@ const Register = () => {
     <>
       {captchaError && (
         <ErrorAlert
-          heading="Error"
           description="Error with captcha. Please try again."
         />
       )}

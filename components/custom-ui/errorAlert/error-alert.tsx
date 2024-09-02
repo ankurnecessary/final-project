@@ -3,16 +3,13 @@ import React from "react";
 import { Alert, AlertTitle, AlertDescription } from "../../ui/alert";
 
 function ErrorAlert({
-  heading,
-  description,
+  description
 }: {
-  heading: string;
   description: string;
 }) {
   return (
     <Alert variant="destructive">
-      <ExclamationTriangleIcon className="h-4 w-4" />
-      <AlertTitle>{heading}</AlertTitle>
+      <ExclamationTriangleIcon className="h-4 w-4 mt-[-4px]" />
       <AlertDescription>{description}</AlertDescription>
     </Alert>
   );
