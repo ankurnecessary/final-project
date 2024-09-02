@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import InfoPopover from "./info-popover";
-import PasswordInfo from "@/components/Register/passwordInfo";
+import PasswordInfo from "@/components/Register/password-info";
 import { within, expect, userEvent } from "@storybook/test";
 
 // TODO: Add jest test cases

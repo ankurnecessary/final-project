@@ -9,7 +9,7 @@ import React, { useRef, useState } from "react";
 import { getCaptchaValidity } from "@/server-actions/recaptcha";
 import ErrorAlert from "../custom-ui/errorAlert/error-alert";
 import InfoPopover from "../custom-ui/infoPopover/info-popover";
-import PasswordInfo from "./passwordInfo";
+import PasswordInfo from "./password-info";
 
 const validationSchema = Yup.object({
   name: Yup.string()
