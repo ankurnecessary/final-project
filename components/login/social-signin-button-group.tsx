@@ -19,12 +19,12 @@ const SocialSigninButtonGroup = () => {
         <SocialSigninButton
           provider="github"
           icon={<Github size={18} color="#2a6edb" className="mr-2" />}
-          label="Sign in with GitHub"
+          label="Continue with GitHub"
         />
         <SocialSigninButton
           provider="google"
           icon={<Chrome size={18} color="#2a6edb" className="mr-2" />}
-          label="Sign in with Google"
+          label="Continue with Google"
         />
       </div>
     </>
