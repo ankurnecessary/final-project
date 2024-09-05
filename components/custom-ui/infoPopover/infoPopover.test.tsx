@@ -1,8 +1,8 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import InfoPopover from "./info-popover";
-import PasswordInfo from "../../Register/password-info";
+import InfoPopover from ".";
+import PasswordInfo from "../../register/passwordInfo";
 
 describe("InfoPopover Component", () => {
   test("renders without crashing", () => {

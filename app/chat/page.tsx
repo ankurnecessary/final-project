@@ -1,5 +1,5 @@
 import { auth } from '@/authentication/auth'
-import SessionData from '@/components/sessionData/session-data'
+import SessionData from '@/components/sessionData'
 import { redirect } from 'next/navigation';
 import React from 'react'
 

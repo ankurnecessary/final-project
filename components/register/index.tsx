@@ -7,9 +7,9 @@ import { Input } from "../ui/input";
 import ReCAPTCHA from "react-google-recaptcha";
 import React, { useRef, useState } from "react";
 import { getCaptchaValidity } from "@/server-actions/recaptcha";
-import ErrorAlert from "../custom-ui/errorAlert/error-alert";
-import InfoPopover from "../custom-ui/infoPopover/info-popover";
-import PasswordInfo from "./password-info";
+import ErrorAlert from "../custom-ui/errorAlert";
+import InfoPopover from "../custom-ui/infoPopover";
+import PasswordInfo from "./passwordInfo";
 
 const validationSchema = Yup.object({
   name: Yup.string()

@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 import ReCAPTCHA from "react-google-recaptcha";
 import React, { useRef, useState } from "react";
 import { getCaptchaValidity } from "@/server-actions/recaptcha";
-import ErrorAlert from "../custom-ui/errorAlert/error-alert";
+import ErrorAlert from "../custom-ui/errorAlert";
 
 const validationSchema = Yup.object({
   email: Yup.string()

@@ -2,7 +2,7 @@ import React from "react";
 import "@testing-library/jest-dom";
 import { useSearchParams } from "next/navigation";
 import { render, fireEvent, screen, act } from "@testing-library/react";
-import Login from "./login";
+import Login from ".";
 
 // Mocking getCaptchaValidity
 jest.mock("@/server-actions/recaptcha", () => ({

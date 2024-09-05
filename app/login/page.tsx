@@ -1,9 +1,9 @@
-import Login from "@/components/Login/login";
+import Login from "@/components/login";
 import Link from "next/link";
 import { auth } from "@/authentication/auth";
 import { redirect } from "next/navigation";
-import SocialSigninButtonGroup from "@/components/Login/social-signin-button-group";
-import SocialAuthErrorAlert from "@/components/socialAuthErrorAlert/social-auth-error-alert";
+import SocialSigninButtonGroup from "@/components/login/socialSigninButtonGroup";
+import SocialAuthErrorAlert from "@/components/socialAuthErrorAlert";
 
 export default async function Home() {
   const session = await auth();

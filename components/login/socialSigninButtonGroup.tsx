@@ -1,5 +1,5 @@
 import React from "react";
-import SocialSigninButton from "./social-signin-button";
+import SocialSigninButton from "./socialSigninButton";
 import { Chrome, Github } from "lucide-react";
 
 const SocialSigninButtonGroup = () => {

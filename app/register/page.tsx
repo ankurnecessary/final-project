@@ -1,6 +1,6 @@
 import { auth } from "@/authentication/auth";
-import SocialSigninButtonGroup from "@/components/Login/social-signin-button-group";
-import Register from "@/components/Register/register";
+import SocialSigninButtonGroup from "@/components/login/socialSigninButtonGroup";
+import Register from "@/components/register";
 import { redirect } from "next/navigation";
 
 export default async function Home() {

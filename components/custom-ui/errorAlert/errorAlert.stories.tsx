@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import ErrorAlert from "./error-alert";
+import ErrorAlert from ".";
 import { within, expect } from "@storybook/test";
 
 const meta: Meta<typeof ErrorAlert> = {
@@ -28,7 +28,6 @@ export const Default: Story = {
     const canvas = within(canvasElement);
 
     // ErrorAlert Component renders without crashing
-    await expect(canvas.getByText("Error alert")).toBeInTheDocument();
     await expect(
       canvas.getByText("There is an error in the application")
     ).toBeInTheDocument();

@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { render, fireEvent, screen, act } from "@testing-library/react";
-import Register from "./register";
+import Register from ".";
 
 // Mocking getCaptchaValidity
 jest.mock("@/server-actions/recaptcha", () => ({

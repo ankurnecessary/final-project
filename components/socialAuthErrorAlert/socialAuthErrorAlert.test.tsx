@@ -1,8 +1,8 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { useSearchParams } from "next/navigation";
-import { render, fireEvent, screen, act } from "@testing-library/react";
-import SocialAuthErrorAlert from "./social-auth-error-alert";
+import { render, screen } from "@testing-library/react";
+import SocialAuthErrorAlert from ".";
 
 // Mock the useSearchParams hook
 jest.mock("next/navigation", () => ({
