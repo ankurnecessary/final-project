@@ -1,10 +1,11 @@
 import React from "react";
 import "@testing-library/jest-dom";
+import { useSearchParams } from "next/navigation";
 import { render, fireEvent, screen, act } from "@testing-library/react";
-import Login from "./login";
+import Login from ".";
 
 // Mocking getCaptchaValidity
-jest.mock('@/server-actions/recaptcha', () => ({
+jest.mock("@/server-actions/recaptcha", () => ({
   __esModule: true,
   getCaptchaValidity: jest.fn().mockResolvedValue(true), // Mock implementation
 }));
@@ -13,14 +14,21 @@ jest.mock('@/server-actions/recaptcha', () => ({
 jest.mock("react-google-recaptcha", () => ({
   __esModule: true,
   default: jest.fn((props) => {
-    return <div data-testid="recaptcha" onClick={() => props.onChange("mock-recaptcha-token")} />;
+    return (
+      <div
+        data-testid="recaptcha"
+        onClick={() => props.onChange("mock-recaptcha-token")}
+      />
+    );
   }),
 }));
+
+
 
 describe("Login Component", () => {
   test("1.renders Login form", () => {
     render(<Login />);
-    expect(screen.getByText("Sign in to your account")).toBeInTheDocument();
+    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
   });
 
   test("2. validate form inputs", async () => {
@@ -37,8 +45,9 @@ describe("Login Component", () => {
     fireEvent.submit(screen.getByRole("button", { name: /sign in$/i }));
 
     expect(await screen.findByText(/Email is required/i)).toBeInTheDocument();
-    expect(await screen.findByText(/^Password is required/i)).toBeInTheDocument();
-    
+    expect(
+      await screen.findByText(/^Password is required/i)
+    ).toBeInTheDocument();
   });
 
   test("3. validate form inputs", async () => {
@@ -54,9 +63,12 @@ describe("Login Component", () => {
 
     fireEvent.submit(screen.getByRole("button", { name: /sign in$/i }));
 
-    expect(await screen.findByText(/Invalid email address/i)).toBeInTheDocument();
-    expect(await screen.findByText(/^Password is required/i)).toBeInTheDocument();
-    
+    expect(
+      await screen.findByText(/Invalid email address/i)
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByText(/^Password is required/i)
+    ).toBeInTheDocument();
   });
 
   test("4. form submission fails without reCAPTCHA", async () => {
@@ -74,7 +86,9 @@ describe("Login Component", () => {
       fireEvent.submit(screen.getByRole("button", { name: /sign in$/i }));
     });
 
-    expect(await screen.findByText(/ReCAPTCHA is required/i)).toBeInTheDocument();
+    expect(
+      await screen.findByText(/ReCAPTCHA is required/i)
+    ).toBeInTheDocument();
   });
 
   test("5. form submission succeeds with reCAPTCHA", async () => {
@@ -110,7 +124,7 @@ describe("Login Component", () => {
 
   test("6. form submission fails with invalid reCAPTCHA", async () => {
     // Mock getCaptchaValidity to return false
-    const { getCaptchaValidity } = require('@/server-actions/recaptcha');
+    const { getCaptchaValidity } = require("@/server-actions/recaptcha");
     getCaptchaValidity.mockResolvedValueOnce(false);
 
     render(<Login />);
@@ -131,7 +145,9 @@ describe("Login Component", () => {
     });
 
     // Check for captcha error message
-    expect(screen.getByText(/Error with captcha. Please try again./i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Error with captcha. Please try again./i)
+    ).toBeInTheDocument();
 
     // Verify that the recaptchaRef reset function was called
     const recaptchaMock = jest.requireMock("react-google-recaptcha").default;

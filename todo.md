@@ -1,4 +1,4 @@
-# Todo
+# Todo - <jake@claritycoders.com>
 
 ## Use storybook.js
 
@@ -29,9 +29,10 @@
 9. Write story for `<Button>` component.[DONE]
 10. Write story for `<Alert>` component.[DONE]
 11. Write story for `<ErrorAlert>` component.[DONE]
-12. Write story for `<Register>` component.[DONE]
+12. Write story for `<sign up>` component.[DONE]
 13. Write story for `<Login>` component.[DONE]
-14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<Register>` components. [NotPossible]
+14. Not able to understand how to mock ReCaptcha in the interaction tests of `<Login>` and `<sign up>` components in storybook. [NotPossible]
+15. Write story for `<Popover>` component.[DONE]
 
 ## [Github Actions](https://www.youtube.com/watch?v=r-iLBNaCTDk)
 
@@ -46,6 +47,7 @@
 2. Test cases for login page. [DONE]
 3. Add recaptcha test case.[DONE]
 4. Updating test cases for the extra code and code files written for server-side integration. [DONE]
+5. Write test cases for `<InfoPopover>` component made to show tooltips. [DONE]
 
 ## Prisma
 
@@ -72,7 +74,7 @@
    3. Passwords must include at least 1 Number - 0-9. [DONE]
    4. Passwords must include at least 1 Special characters: !@#$%^&*()_+-=[]{}|;:',.<>?/`~ [DONE]
 
-3. Add a tooltip to show the information about password requirements.[INPROGRESS]
+3. Add a tooltip to show the information about password requirements.[DONE]
 
 ## Registration form
 
@@ -90,8 +92,25 @@
 ## Login form
 
 1. Integrate reCaptcha's logic in the server action function.[DONE]
-2. Create API for login.
-3. Call login API from server action function.
+2. Integrate login via Github authentication via auth.js. [DONE]
+   1. If we want the control to land over some other page then we can use `redirect()` in options.ts.[DONE]
+   2. Set a new route (/chat) where authorized user will land[DONE]. Print the session object on this page.[DONE]
+   3. Track session on chat page. If a user is signed out and if he tries to access the chat page then control should be redirected to login page.[DONE]
+   4. If user is signed in then whenever user will try to access the login page then control will be redirected to home page.[DONE]
+   5. If user is signed in then whenever user will try to access the sign up page then control will be redirected to home page.[DONE]
+   6. Handle the error cases that could appear if user will refuse from Github authentication. Clicking "cancel" button instead of "Authorize" on github page. [DONE]
+   7. Showing an error message on login page when there is something wrong with social login. [DONE]
+3. Integrate login via Google authentication via auth.js.[DONE]
+4. [Knowledge]: Auth.js automatically lands the control over the URL from where the authorization request started. If we don't use the second argument of the `signIn` function.
+5. Add .env.example. [DONE]
+6. Add a header into whole website that will show [DONE]
+   1. Sign in and sign up buttons when user is not signed in. [DONE]
+   2. Sign out button when user is signed in. [DONE]
+7. Added social auth buttons on registration page. [DONE]
+8. Change the layout of login page for big screens. [DONE]
+9. Need to take errors out of the login.tsx and into parent page. [DONE]
+10. Create API for login.
+11. Call login API from server action function.
 
 ## ReCAPTCHA
 
@@ -136,3 +155,20 @@ Work on responsiveness of the forms.[DONE]
 ## Accessibility tests
 
 1. Check how to correct  all the accessibility test in storybook. [DONE]
+2. Checked accessibility issue with `<InfoPopover>` component. [DONE]
+
+## Next version (Spent time but not able to implement it. So, will implement these points in next version)
+
+1. Implement authentication via middleware. Is it really necessary? [Ask_community]
+2. Use error handling methods that are prescribed by Auth.js. I am currently handling auth errors via middleware. Not able to implement it via auth.ts file's callback. [Ask_community]
+3. If user has signed in via social login and we don't have his account sign uped with us then we will ask him to sign up with a username and password.
+
+## AI Model
+
+1. Chat GPT
+2. Perplexity
+3. Copilot
+
+Hi Everyone,
+
+I was making login functionality via `"next-auth": "^5.0.0-beta.20"` in a `"next": "15.0.0-rc.0"` application.  Link here: <https://github.com/ankurnecessary/final-project/tree/social-login> . I am on it from a week right now and it is giving me issues in protecting routes via middleware.ts. I want to protect them in a way that if a user is not signed in and try to access a page that can be accessed only after login, then he will be navigated to login page. And if a user is already signed in then if he tries to access

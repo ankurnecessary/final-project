@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import ErrorAlert from "./error-alert";
+import ErrorAlert from ".";
 import { within, expect } from "@storybook/test";
 
 const meta: Meta<typeof ErrorAlert> = {
@@ -10,10 +10,6 @@ const meta: Meta<typeof ErrorAlert> = {
     layout: "centered", // Automatically center the button
   },
   argTypes: {
-    // Adding textbox for setting custom heading
-    heading: {
-      control: "text",
-    },
     // Adding textbox for setting custom description
     description: {
       control: "text",
@@ -26,14 +22,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    heading: "Error alert",
     description: "There is an error in the application",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     // ErrorAlert Component renders without crashing
-    await expect(canvas.getByText("Error alert")).toBeInTheDocument();
     await expect(
       canvas.getByText("There is an error in the application")
     ).toBeInTheDocument();

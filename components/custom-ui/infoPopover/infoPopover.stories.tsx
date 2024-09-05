@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import InfoPopover from "./info-popover";
+import InfoPopover from ".";
 import PasswordInfo from "@/components/register/passwordInfo";
 import { within, expect, userEvent } from "@storybook/test";
 

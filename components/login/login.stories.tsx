@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { within, userEvent, expect, waitFor, screen } from '@storybook/test';
 
-import Login from './login';
+import Login from '.';
 
 const meta = {
   title: 'Component/Login',
