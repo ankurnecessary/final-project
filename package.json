@@ -71,6 +71,6 @@
     "prisma": "^5.17.0",
     "storybook": "^8.2.9",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "~5.4.0"
   }
 }
