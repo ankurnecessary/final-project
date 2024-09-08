@@ -84,7 +84,7 @@ export const Default: Story = {
 
     // 👇 Assert Password validation message not there
     await waitFor(() => expect(screen.queryByText('Password must include at least 1 special character.')).toBeInTheDocument());
-    
+
     // 👇 Simulate interaction with the password field
     await userEvent.clear(canvas.getByTestId('password'));
     await userEvent.type(canvas.getByTestId('password'), 'Hello@he1');
@@ -106,6 +106,6 @@ export const Default: Story = {
     // 👇 Assert Confirm Password validation message not there
     await waitFor(() => expect(screen.queryByText('Confirm Password is required')).not.toBeInTheDocument());
     await waitFor(() => expect(screen.queryByText('Passwords must match')).not.toBeInTheDocument());
-   
+
   },
 };

@@ -1,7 +1,7 @@
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
 
 const ErrorPage = () => {
   redirect('/login?error=authError');
-}
+};
 
-export default ErrorPage
+export default ErrorPage;
