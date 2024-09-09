@@ -16,7 +16,8 @@
     "test:coverage": "jest --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@prisma/client": "^5.17.0",
@@ -29,6 +30,8 @@
     "clsx": "^2.1.1",
     "eslint-plugin-prettier": "^5.2.1",
     "formik": "^2.4.6",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.10",
     "lucide-react": "^0.416.0",
     "next": "15.0.0-rc.0",
     "next-auth": "^5.0.0-beta.20",
