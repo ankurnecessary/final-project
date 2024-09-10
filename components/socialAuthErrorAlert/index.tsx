@@ -1,10 +1,10 @@
-"use client";
-import React from "react";
-import { useSearchParams } from "next/navigation";
-import ErrorAlert from "../custom-ui/errorAlert";
+'use client';
+import React from 'react';
+import { useSearchParams } from 'next/navigation';
+import ErrorAlert from '../custom-ui/errorAlert';
 
 const SocialAuthErrorAlert = () => {
-  const isAuthError = useSearchParams()?.get("error") === "authError";
+  const isAuthError = useSearchParams()?.get('error') === 'authError';
   return (
     <>
       {isAuthError && (

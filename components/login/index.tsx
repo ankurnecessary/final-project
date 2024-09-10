@@ -1,20 +1,20 @@
-"use client";
-import * as Yup from "yup";
-import { Formik, Form, ErrorMessage } from "formik";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import ReCAPTCHA from "react-google-recaptcha";
-import React, { useRef, useState } from "react";
-import { getCaptchaValidity } from "@/server-actions/recaptcha";
-import ErrorAlert from "../custom-ui/errorAlert";
+'use client';
+import * as Yup from 'yup';
+import { Formik, Form, ErrorMessage } from 'formik';
+import { Label } from '../ui/label';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
+import ReCAPTCHA from 'react-google-recaptcha';
+import React, { useRef, useState } from 'react';
+import { getCaptchaValidity } from '@/server-actions/recaptcha';
+import ErrorAlert from '../custom-ui/errorAlert';
 
 const validationSchema = Yup.object({
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  password: Yup.string().required("Password is required"),
-  recaptcha: Yup.string().required("ReCAPTCHA is required"),
+    .email('Invalid email address')
+    .required('Email is required'),
+  password: Yup.string().required('Password is required'),
+  recaptcha: Yup.string().required('ReCAPTCHA is required'),
 });
 
 const Login = () => {
@@ -23,19 +23,17 @@ const Login = () => {
   return (
     <>
       {captchaError && (
-        <ErrorAlert
-          description="Error with captcha. Please try again."
-        />
+        <ErrorAlert description="Error with captcha. Please try again." />
       )}
       <Formik
         initialValues={{
-          email: "",
-          password: "",
-          recaptcha: "",
+          email: '',
+          password: '',
+          recaptcha: '',
         }}
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting }) => {
-          console.log("Form data", values);
+          console.log('Form data', values);
           const isCaptchaValid = await getCaptchaValidity(values.recaptcha);
           if (!isCaptchaValid) {
             setCaptchaError(true);
@@ -87,7 +85,7 @@ const Login = () => {
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey="6Lfd9xkqAAAAACTLpOgZd-iIuwV6dTxPZdrctvEI"
-                onChange={(value) => setFieldValue("recaptcha", value)}
+                onChange={(value) => setFieldValue('recaptcha', value)}
                 title="reCAPTCHA-i"
               />
               <ErrorMessage

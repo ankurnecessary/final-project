@@ -1,37 +1,37 @@
-"use client";
-import * as Yup from "yup";
-import { Formik, Form, ErrorMessage } from "formik";
-import { Button } from "../ui/button";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
-import ReCAPTCHA from "react-google-recaptcha";
-import React, { useRef, useState } from "react";
-import { getCaptchaValidity } from "@/server-actions/recaptcha";
-import ErrorAlert from "../custom-ui/errorAlert";
-import InfoPopover from "../custom-ui/infoPopover";
-import PasswordInfo from "./passwordInfo";
+'use client';
+import * as Yup from 'yup';
+import { Formik, Form, ErrorMessage } from 'formik';
+import { Button } from '../ui/button';
+import { Label } from '../ui/label';
+import { Input } from '../ui/input';
+import ReCAPTCHA from 'react-google-recaptcha';
+import React, { useRef, useState } from 'react';
+import { getCaptchaValidity } from '@/server-actions/recaptcha';
+import ErrorAlert from '../custom-ui/errorAlert';
+import InfoPopover from '../custom-ui/infoPopover';
+import PasswordInfo from './passwordInfo';
 
 const validationSchema = Yup.object({
   name: Yup.string()
-    .min(2, "Name must be at least 2 characters")
-    .required("Name is required"),
+    .min(2, 'Name must be at least 2 characters')
+    .required('Name is required'),
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+    .email('Invalid email address')
+    .required('Email is required'),
   password: Yup.string()
-    .min(8, "At least 8 characters")
-    .required("Password is required")
-    .matches(/[A-Z]/, "Password must include at least 1 upper case letter.")
-    .matches(/[a-z]/, "Password must include at least 1 lower case letter.")
-    .matches(/[0-9]/, "Password must include at least 1 number.")
+    .min(8, 'At least 8 characters')
+    .required('Password is required')
+    .matches(/[A-Z]/, 'Password must include at least 1 upper case letter.')
+    .matches(/[a-z]/, 'Password must include at least 1 lower case letter.')
+    .matches(/[0-9]/, 'Password must include at least 1 number.')
     .matches(
       /[!@#$%^&*()_+\-=[\]{}|;:',.<>?/`~]/,
-      "Password must include at least 1 special character."
+      'Password must include at least 1 special character.',
     ),
-  "confirm-password": Yup.string()
-    .oneOf([Yup.ref("password")], "Passwords must match")
-    .required("Confirm Password is required"),
-  recaptcha: Yup.string().required("ReCAPTCHA is required"),
+  'confirm-password': Yup.string()
+    .oneOf([Yup.ref('password')], 'Passwords must match')
+    .required('Confirm Password is required'),
+  recaptcha: Yup.string().required('ReCAPTCHA is required'),
 });
 
 const Register = () => {
@@ -40,21 +40,19 @@ const Register = () => {
   return (
     <>
       {captchaError && (
-        <ErrorAlert
-          description="Error with captcha. Please try again."
-        />
+        <ErrorAlert description="Error with captcha. Please try again." />
       )}
       <Formik
         initialValues={{
-          name: "",
-          email: "",
-          password: "",
-          "confirm-password": "",
-          recaptcha: "",
+          name: '',
+          email: '',
+          password: '',
+          'confirm-password': '',
+          recaptcha: '',
         }}
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting }) => {
-          console.log("Form data", values);
+          console.log('Form data', values);
           const isCaptchaValid = await getCaptchaValidity(values.recaptcha);
           if (!isCaptchaValid) {
             setCaptchaError(true);
@@ -158,7 +156,7 @@ const Register = () => {
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey="6Lfd9xkqAAAAACTLpOgZd-iIuwV6dTxPZdrctvEI"
-                onChange={(value) => setFieldValue("recaptcha", value)}
+                onChange={(value) => setFieldValue('recaptcha', value)}
               />
               <ErrorMessage
                 name="recaptcha"
@@ -168,7 +166,7 @@ const Register = () => {
             </div>
             <Button
               type="submit"
-              className="w-full mt-8"
+              className="mt-8 w-full"
               disabled={isSubmitting}
             >
               Sign up

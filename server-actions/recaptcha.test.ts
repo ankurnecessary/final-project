@@ -25,7 +25,7 @@ describe('getCaptchaValidity', () => {
     expect(result).toBe(true);
     expect(fetch).toHaveBeenCalledWith(
       `${mockUrl}?secret=${mockSecret}&response=valid-key`,
-      { method: 'POST' }
+      { method: 'POST' },
     );
   });
 
@@ -39,7 +39,7 @@ describe('getCaptchaValidity', () => {
     expect(result).toBe(false);
     expect(fetch).toHaveBeenCalledWith(
       `${mockUrl}?secret=${mockSecret}&response=invalid-key`,
-      { method: 'POST' }
+      { method: 'POST' },
     );
   });
 
@@ -47,7 +47,7 @@ describe('getCaptchaValidity', () => {
     delete process.env.CAPTCHA_SECRET;
 
     await expect(getCaptchaValidity('any-key')).rejects.toThrow(
-      'CAPTCHA_SECRET is not defined'
+      'CAPTCHA_SECRET is not defined',
     );
   });
 
@@ -55,7 +55,7 @@ describe('getCaptchaValidity', () => {
     delete process.env.CAPTCHA_URL;
 
     await expect(getCaptchaValidity('any-key')).rejects.toThrow(
-      'CAPTCHA_URL is not defined'
+      'CAPTCHA_URL is not defined',
     );
   });
 
@@ -66,7 +66,7 @@ describe('getCaptchaValidity', () => {
     });
 
     await expect(getCaptchaValidity('any-key')).rejects.toThrow(
-      'Network response was not ok: Bad Request'
+      'Network response was not ok: Bad Request',
     );
   });
 
@@ -77,7 +77,7 @@ describe('getCaptchaValidity', () => {
     });
 
     await expect(getCaptchaValidity('any-key')).rejects.toThrow(
-      'Failed to parse JSON: Error: Invalid JSON'
+      'Failed to parse JSON: Error: Invalid JSON',
     );
   });
 });

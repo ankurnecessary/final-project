@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@radix-ui/react-popover";
-import { Info } from "lucide-react";
+} from '@radix-ui/react-popover';
+import { Info } from 'lucide-react';
 
 type InfoPopoverProps = {
   children: JSX.Element;
@@ -12,18 +12,25 @@ type InfoPopoverProps = {
   contentOffset?: number;
 };
 
-function InfoPopover({ label, children, contentOffset }: InfoPopoverProps): JSX.Element {
+function InfoPopover({
+  label,
+  children,
+  contentOffset,
+}: InfoPopoverProps): JSX.Element {
   return (
     <Popover>
-      <PopoverTrigger className="indent-[-10000px] inline-block h-[15px]">
-          {label}
-          <Info
-            size={15}
-            className="ml-1 text-neutral-500 cursor-help relative top-[-14px]"
-          />
+      <PopoverTrigger className="inline-block h-[15px] indent-[-10000px]">
+        {label}
+        <Info
+          size={15}
+          className="relative top-[-14px] ml-1 cursor-help text-neutral-500"
+        />
       </PopoverTrigger>
       <PopoverContent side="top" align="center" sideOffset={contentOffset}>
-        <div data-testid="info-popover-content" className="bg-white p-2 border rounded-md shadow-lg">
+        <div
+          data-testid="info-popover-content"
+          className="rounded-md border bg-white p-2 shadow-lg"
+        >
           {children}
         </div>
       </PopoverContent>

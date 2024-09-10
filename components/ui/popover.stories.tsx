@@ -1,38 +1,41 @@
-import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import { Popover, PopoverTrigger, PopoverContent } from "./popover";
-import { Button } from "./button";
-import { action } from "@storybook/addon-actions";
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import { Popover, PopoverTrigger, PopoverContent } from './popover';
+import { Button } from './button';
+import { action } from '@storybook/addon-actions';
 
 const meta: Meta = {
-  title: "Component/UI/Popover",
+  title: 'Component/UI/Popover',
   component: Popover,
-  // Subcomponent's tabs are empty because of https://storybook.js.org/docs/writing-stories/stories-for-multiple-components
+  // Subcomponent's tabs are empty because of https://storybook.js.org/docs/writing-stories/stories-for-multiple-components. Some issue with storybook.
   subcomponents: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     PopoverTrigger: PopoverTrigger as React.ComponentType<any>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     PopoverContent: PopoverContent as React.ComponentType<any>,
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
   argTypes: {
     defaultOpen: {
-      control: "boolean",
+      control: 'boolean',
       description:
-        "The open state of the popover when it is initially rendered. Use when you do not need to control its open state.",
+        'The open state of the popover when it is initially rendered. Use when you do not need to control its open state.',
       defaultValue: false,
     },
     modal: {
-      control: "boolean",
+      control: 'boolean',
       description:
-        "The modality of the popover. When set to true, interaction with outside elements will be disabled and only popover content will be visible to screen readers.",
+        'The modality of the popover. When set to true, interaction with outside elements will be disabled and only popover content will be visible to screen readers.',
       defaultValue: false,
     },
-    onOpenChange:{
-      description: "Event handler called when the open state of the popover changes."
-    }
+    onOpenChange: {
+      description:
+        'Event handler called when the open state of the popover changes.',
+    },
   },
   args: { onOpenChange: fn() },
 };
@@ -48,7 +51,7 @@ export const Default: Story = {
         <Button>Click me</Button>
       </PopoverTrigger>
       <PopoverContent side="top" align="center">
-        <ul className="flex flex-col font-normal gap-y-1 text-xs">
+        <ul className="flex flex-col gap-y-1 text-xs font-normal">
           <li>At least 8 characters</li>
           <li>At least 1 upper case letter.</li>
           <li>At least 1 lower case letter.</li>
@@ -60,29 +63,31 @@ export const Default: Story = {
   ),
   args: {
     defaultOpen: false,
-    onOpenChange: action("Default button click"),
-    modal: false
+    onOpenChange: action('Default button click'),
+    modal: false,
   },
 };
 
 export const Open: Story = {
   args: {
     defaultOpen: true,
-    modal: false
+    modal: false,
   },
 
-  render: args => (<Popover {...args}>
-    <PopoverTrigger asChild>
-      <Button>Click me</Button>
-    </PopoverTrigger>
-    <PopoverContent side="top" align="center">
-      <ul className="flex flex-col font-normal gap-y-1 text-xs">
-        <li>At least 8 characters</li>
-        <li>At least 1 upper case letter.</li>
-        <li>At least 1 lower case letter.</li>
-        <li>At least 1 number.</li>
-        <li>At least 1 special character.</li>
-      </ul>
-    </PopoverContent>
-  </Popover>)
+  render: (args) => (
+    <Popover {...args}>
+      <PopoverTrigger asChild>
+        <Button>Click me</Button>
+      </PopoverTrigger>
+      <PopoverContent side="top" align="center">
+        <ul className="flex flex-col gap-y-1 text-xs font-normal">
+          <li>At least 8 characters</li>
+          <li>At least 1 upper case letter.</li>
+          <li>At least 1 lower case letter.</li>
+          <li>At least 1 number.</li>
+          <li>At least 1 special character.</li>
+        </ul>
+      </PopoverContent>
+    </Popover>
+  ),
 };

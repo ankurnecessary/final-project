@@ -46,6 +46,7 @@ module.exports = {
         objectLiteralTypeAssertions: 'never',
       },
     ],
+    'react/no-unknown-property': ['error', { ignore: ['jsx'] }],
     // React rules
     'react/jsx-fragments': ['warn', 'syntax'], // Shorthand syntax for React fragments
     'react/jsx-filename-extension': [
@@ -65,4 +66,5 @@ module.exports = {
       version: 'detect',
     },
   },
+  "ignorePatterns": ["!.storybook"]
 };
