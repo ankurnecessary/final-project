@@ -110,8 +110,10 @@
 7. Added social auth buttons on registration page. [DONE]
 8. Change the layout of login page for big screens. [DONE]
 9. Need to take errors out of the login.tsx and into parent page. [DONE]
-10. Create API for login.
-11. Call login API from server action function.
+10. Saving user to database when user is trying to login using social auth [for the very first time].[INPROGRESS]
+11. [for the very first time]: Upon saving the user to database we will take him to sign-up page to fill in further user information.
+12. Create API for login.
+13. Call login API from server action function.
 
 ## ReCAPTCHA
 
@@ -170,12 +172,15 @@ Work on responsiveness of the forms.[DONE]
 2. Perplexity
 3. Copilot
 
-## Update readme.md with the required information. [INPROGRESS]
+## Update readme.md with the required information. [DONE]
 
 1. Information about various commands in the script. [DONE]
 2. All the links - <https://ankurnecessary.github.io/final-project> [DONE]
 3. About the tech stack. [DONE]
 4. About the libraries. [DONE]
-5. Incorporating ESLint as a git hook. [INPROGRESS]
-6. Add ESLint in CI.
-7. Add a script in package.json that will impersonate all the commands that run in CI.
+5. Incorporating ESLint as a git hook (<https://medium.com/yavar/setting-up-a-eslint-prettier-husky-and-lint-staged-integration-with-typescript-in-next-js-13-14-68044dfae920>). [DONE]
+6. Test that the project is working fine by now when cloned somewhere else. [DONE]
+7. Set ESLint in CI. [DONE]
+8. Add a script in package.json that will impersonate all the commands that run in CI. Still figuring out.
+
+[**knowledge**]: The term "waterfall" typically refers to the sequential execution of multiple fetch requests. This means that the subsequent fetch requests are initiated only after the previous fetch request has been resolved or completed.
