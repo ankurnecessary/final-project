@@ -55,5 +55,8 @@ jobs:
     - name: /////////////// Installing dependencies ///////////////
       run: npm ci --force
 
+    - name: /////////////// Running ESLint ///////////////
+      run: npm run lint
+
     - name: /////////////// Test command ///////////////
       run: npm run test:coverage
