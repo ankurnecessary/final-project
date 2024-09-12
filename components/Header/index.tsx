@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { auth, signOut } from "@/authentication/auth";
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { auth, signOut } from '@/authentication/auth';
 
 export default async function Component() {
   const session = await auth();
   return (
-    <header className="flex items-center justify-between px-4 py-3 bg-background shadow-m border border-x-0 border-t-0 fixed top-0 w-full">
+    <header className="shadow-m fixed top-0 flex w-full items-center justify-between border border-x-0 border-t-0 bg-background px-4 py-3">
       <Link href="/" className="flex items-center gap-2" prefetch={false}>
         <MountainIcon className="h-6 w-6" />
         <span className="text-lg font-semibold">Iconic</span>
@@ -15,13 +15,13 @@ export default async function Component() {
           <>
             <Link
               href="/login"
-              className="px-4 py-[10px] text-sm font-medium bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
+              className="rounded-md bg-primary px-4 py-[10px] text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               Sign In
             </Link>
             <Link
               href="/register"
-              className="px-4 py-[10px] text-sm font-medium bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-md"
+              className="rounded-md bg-primary px-4 py-[10px] text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               Sign Up
             </Link>
@@ -29,8 +29,8 @@ export default async function Component() {
         )}
         {session && (
           <form
-            action={async (formdata) => {
-              "use server";
+            action={async () => {
+              'use server';
               await signOut();
             }}
           >
@@ -48,6 +48,7 @@ export default async function Component() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function MountainIcon(props: any) {
   return (
     <svg

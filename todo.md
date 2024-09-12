@@ -69,10 +69,11 @@
 
 1. **Minimum Password Length** - Passwords must be at least 8 characters long (AWS supports up to 128 characters). [DONE]
 2. **Character Composition** -
+
    1. Passwords must include at least 1 Upper Case letter. A-Z. [DONE]
    2. Passwords must include at least 1 Lower Case letter. a-z. [DONE]
    3. Passwords must include at least 1 Number - 0-9. [DONE]
-   4. Passwords must include at least 1 Special characters: !@#$%^&*()_+-=[]{}|;:',.<>?/`~ [DONE]
+   4. Passwords must include at least 1 Special characters: !@#$%^&\*()\_+-=[]{}|;:',.<>?/`~ [DONE]
 
 3. Add a tooltip to show the information about password requirements.[DONE]
 
@@ -154,7 +155,7 @@ Work on responsiveness of the forms.[DONE]
 
 ## Accessibility tests
 
-1. Check how to correct  all the accessibility test in storybook. [DONE]
+1. Check how to correct all the accessibility test in storybook. [DONE]
 2. Checked accessibility issue with `<InfoPopover>` component. [DONE]
 
 ## Next version (Spent time but not able to implement it. So, will implement these points in next version)
@@ -169,6 +170,12 @@ Work on responsiveness of the forms.[DONE]
 2. Perplexity
 3. Copilot
 
-Hi Everyone,
+## Update readme.md with the required information. [INPROGRESS]
 
-I was making login functionality via `"next-auth": "^5.0.0-beta.20"` in a `"next": "15.0.0-rc.0"` application.  Link here: <https://github.com/ankurnecessary/final-project/tree/social-login> . I am on it from a week right now and it is giving me issues in protecting routes via middleware.ts. I want to protect them in a way that if a user is not signed in and try to access a page that can be accessed only after login, then he will be navigated to login page. And if a user is already signed in then if he tries to access
+1. Information about various commands in the script. [DONE]
+2. All the links - <https://ankurnecessary.github.io/final-project> [DONE]
+3. About the tech stack. [DONE]
+4. About the libraries. [DONE]
+5. Incorporating ESLint as a git hook. [INPROGRESS]
+6. Add ESLint in CI.
+7. Add a script in package.json that will impersonate all the commands that run in CI.

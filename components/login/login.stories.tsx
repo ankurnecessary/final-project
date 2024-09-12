@@ -24,32 +24,45 @@ export const Default: Story = {
     await userEvent.click(loginButton);
 
     // 👇 Assert Email validation message
-    await waitFor(() => expect(screen.queryByText('Email is required')).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.queryByText('Email is required')).toBeInTheDocument(),
+    );
 
     // 👇 Assert Password validation message
-    await waitFor(() => expect(screen.queryByText('Password is required')).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.queryByText('Password is required')).toBeInTheDocument(),
+    );
 
     // 👇 Assert ReCAPTCHA  validation message
-    await waitFor(() => expect(screen.queryByText('ReCAPTCHA is required')).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.queryByText('ReCAPTCHA is required')).toBeInTheDocument(),
+    );
 
     // 👇 Simulate interaction with the email field
     await userEvent.type(canvas.getByTestId('email'), 'emailprovider.com');
 
     // 👇 Assert Invalid Email validation message
-    await waitFor(() => expect(screen.queryByText('Invalid email address')).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.queryByText('Invalid email address')).toBeInTheDocument(),
+    );
 
     // 👇 Simulate interactions with the email field
     await userEvent.clear(canvas.getByTestId('email'));
     await userEvent.type(canvas.getByTestId('email'), 'email@provider.com');
 
     // 👇 Assert Email validation message not there
-    await waitFor(() => expect(screen.queryByText('Email is required')).not.toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.queryByText('Email is required')).not.toBeInTheDocument(),
+    );
 
     // 👇 Simulate interaction with the password field
     await userEvent.type(canvas.getByTestId('password'), '123456');
 
     // 👇 Assert Password validation message not there
-    await waitFor(() => expect(screen.queryByText('Password is required')).not.toBeInTheDocument());
-
+    await waitFor(() =>
+      expect(
+        screen.queryByText('Password is required'),
+      ).not.toBeInTheDocument(),
+    );
   },
 };

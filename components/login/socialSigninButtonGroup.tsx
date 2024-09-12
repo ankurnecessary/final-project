@@ -1,6 +1,6 @@
-import React from "react";
-import SocialSigninButton from "./socialSigninButton";
-import { Chrome, Github } from "lucide-react";
+import React from 'react';
+import SocialSigninButton from './socialSigninButton';
+import { Chrome, Github } from 'lucide-react';
 
 const SocialSigninButtonGroup = () => {
   return (
@@ -10,7 +10,7 @@ const SocialSigninButtonGroup = () => {
           <span className="w-full border-t border-black opacity-20" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs leading-5 border border-primary bg-white">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-primary bg-white text-xs leading-5">
             Or
           </span>
         </div>

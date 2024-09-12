@@ -1,19 +1,22 @@
-import React from "react";
-import { Button } from "../ui/button";
-import { Github } from "lucide-react";
-import { signIn } from "@/authentication/auth";
+import React from 'react';
+import { Button } from '../ui/button';
+import { signIn } from '@/authentication/auth';
 
 const SocialSigninButton = ({
   provider,
   label,
   icon,
   ...props
-}: { provider?: string, label: string, icon: React.JSX.Element } & React.ComponentPropsWithRef<typeof Button>) => {
+}: {
+  provider?: string;
+  label: string;
+  icon: React.JSX.Element;
+} & React.ComponentPropsWithRef<typeof Button>) => {
   return (
     <form
       action={async () => {
-        "use server";
-        await signIn(provider, { redirectTo: "/chat"});
+        'use server';
+        await signIn(provider, { redirectTo: '/chat' });
       }}
     >
       <Button variant="outline" className="w-full bg-slate-50" {...props}>

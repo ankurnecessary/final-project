@@ -123,3 +123,15 @@ npm run build-storybook
 ```
 
 It makes a build for stroybook.
+
+```bash
+npm run lint
+```
+
+To lint the existing code.
+
+```bash
+npm run lint:fix
+```
+
+To fix the linting errors in the existing code.

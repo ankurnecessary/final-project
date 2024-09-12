@@ -1,10 +1,10 @@
-"use server";
+'use server';
 
 interface ReCaptcha {
   success: boolean;
   challenge_ts: string;
   hostname: string;
-  "error-codes": Array<string>;
+  'error-codes': string[];
 }
 
 export async function getCaptchaValidity(key: string): Promise<boolean> {
@@ -22,8 +22,8 @@ export async function getCaptchaValidity(key: string): Promise<boolean> {
   const response = await fetch(
     `${captchaUrl}?secret=${captchaSecret}&response=${key}`,
     {
-      method: "POST",
-    }
+      method: 'POST',
+    },
   );
 
   if (!response.ok) {
