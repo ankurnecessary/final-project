@@ -12,3 +12,14 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// password - Nullable because we when user logs in using google or github, it will be added in the database. At that time it's password will not be there.
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  email     String   @unique
+  password  String?   // Store hashed password here
+  sessionExpiry DateTime? // Nullable field for session expiration
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
