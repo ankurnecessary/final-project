@@ -9,6 +9,8 @@
 1. Integrating a CI/CD pipeline for integration tests in storybook. [DONE]
 2. Make sure after sucessful run of test only storybook will be deployed on github pages.[DONE]
 3. Your project token was added to the script via the --project-token flag. If you're running Chromatic via continuous integration, we recommend setting the **CHROMATIC_PROJECT_TOKEN** environment variable in your CI environment. You can then remove the --project-token from your package.json script.[DONE]
+4. Tailwindcss issue with storybook - <https://dev.to/lico/nextjs-using-tailwind-with-storybook-5aie>
+5. To get all the *.stories.tsx files from all over the project folder use the following setting in .storybook/main.ts - stories: `['../**/*.mdx', '../**/*.stories.@(js|jsx|mjs|ts|tsx)']`
 
 ### [Storybook interaction testing](https://storybook.js.org/docs/writing-tests/interaction-testing#run-code-before-the-component-gets-rendered)
 
@@ -184,3 +186,11 @@ Work on responsiveness of the forms.[DONE]
 8. Add a script in package.json that will impersonate all the commands that run in CI. Still figuring out.
 
 [**knowledge**]: The term "waterfall" typically refers to the sequential execution of multiple fetch requests. This means that the subsequent fetch requests are initiated only after the previous fetch request has been resolved or completed.
+
+[Learn JavaScript Testing]
+
+1. <https://www.testingjavascript.com/>
+2. <https://testing-library.com/docs/react-testing-library/cheatsheet>
+3. To find element selectors - <https://testing-playground.com/>
+4. Typescript - <https://www.totaltypescript.com/>
+5. React testing blog - <https://www.robinwieruch.de/react-testing-library/>
